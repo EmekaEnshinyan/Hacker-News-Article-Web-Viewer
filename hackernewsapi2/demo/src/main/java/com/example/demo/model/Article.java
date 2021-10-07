@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.*;
 
 public class Article {
@@ -8,23 +10,20 @@ public class Article {
     private String qKeywords;
     private String qTitle;
     private String qDate;
-
-    public Article(UUID num, String name, String url, String when) {
-        this.key = num;
-        this.qKeywords = name;
-        this.qTitle = url;
+    //12. when data is inputted in postman as json text, want to send that data to server
+    //13. first need to define property into java class like putting @JSONPorperty below
+    public Article(@JsonProperty("id") UUID id, String keywords, @JsonProperty("title") String title, String when) { // TODO: <-- what exactly is a UUID
+        this.key = id;
+        this.qKeywords = keywords;
+        this.qTitle = title;
         this.qDate = when;
 
     }
 
     //getters
-    public UUID getKey() {
-        return key;
-    }
+    public UUID getKey() {return key;}
 
-    public String getQKeyword() {
-        return qKeywords;
-    }
+    public String getQKeyword() {return qKeywords;}
 
     public String getQTitle() {
         return qTitle;
@@ -33,20 +32,22 @@ public class Article {
     public String getQDate() {
         return qDate;
     }
+
+
     //setters
-    public void setKey(UUID key) {
-        this.key = key;
+    public void setKey(UUID id) {
+        this.key = id;
     }
 
-    public void setQKeywords(String qKeywords) {
-        this.qKeywords = qKeywords;
+    public void setQKeywords(String keywords) {
+        this.qKeywords = keywords;
     }
 
-    public void setQTitle(String qTitle) {
-        this.qTitle = qTitle;
+    public void setQTitle(String title) {
+        this.qTitle = title;
     }
 
-    public void setQDate(String qDate) {
-        this.qDate = qDate;
+    public void setQDate(String when) {
+        this.qDate = when;
     }
 }
