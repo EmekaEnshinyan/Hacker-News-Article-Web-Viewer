@@ -8,11 +8,10 @@ import org.springframework.web.bind.annotation.*;
 //Here is where the API is implemented
 
 //17. now need to define pathway/url of postman so they can connect
-@RequestMapping("{{baserequest}}")
+@RequestMapping("localhost:8080/api/v1/article")
 //14. add @restcontroller for creating restful web services.
 //once response body generated from handler method, converts response to JSON or XML file
 @RestController
-
 public class ArticleController {
     //1. we need a reference to actual service
     private final ArticleService articleService;
