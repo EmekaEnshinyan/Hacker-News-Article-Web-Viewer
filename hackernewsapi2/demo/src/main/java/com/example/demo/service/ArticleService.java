@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 //5. here we need to tell Spring that this class is the service injection???
 //because if we don't the constructor will not know what to do???
 //8. now we should replace @service for @restcontroller so that we can use restful services like get, put, delete
@@ -33,4 +35,10 @@ public class ArticleService {
     //10. can now use the application Postman to serve as our client
     //11. when workspace made, try sending post request using localhost:8080
     }
+    //MAY NEED TO CONSULT METHOD OVERLOADING
+    //20. now need to connect to implemented method selectAllArticles() that is connected to interface
+    public List<Article> getAllArticles(){
+         return articleDao.selectAllArticles();
+    }
+
 }

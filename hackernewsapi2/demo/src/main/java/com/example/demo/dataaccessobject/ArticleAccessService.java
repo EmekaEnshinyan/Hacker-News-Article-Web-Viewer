@@ -1,6 +1,9 @@
 package com.example.demo.dataaccessobject;
+import com.example.demo.api.ArticleController;
 import com.example.demo.model.Article;
+import com.example.demo.service.ArticleService;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.PostMapping;
 //TODO //###MAY NOT WORK BECAUSE OF PACKAGE NAME??###
 import java.util.*;
 //this is where the ??? will implement the ArticleDao interface
@@ -30,9 +33,10 @@ public class  ArticleAccessService implements ArticleDao {
         return 1; // <-- why are we returning 0? initializer for when id is inserted? so we know insertion always works
     }
     //19. since new method is made in interface, it needs to be implemented here
+    //20. need to return the database since that's where the articles are going to be after POST
     @Override
     public List<Article> selectAllArticles(){
-        return null;
+        return dataB;
     }
 
 

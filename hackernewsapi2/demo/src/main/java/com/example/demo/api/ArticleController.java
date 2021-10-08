@@ -5,6 +5,8 @@ import com.example.demo.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 //Here is where the API is implemented
 
 //17. now need to define pathway/url of postman so they can connect
@@ -30,5 +32,8 @@ public class ArticleController {
     public void addArticle(@RequestBody Article article){
         articleService.addArticle(article);
     }
-
+    //21. now need a method that will serve as the get request
+    public List<Article> getAllArticles(){
+        return articleService. getAllArticles(); //<-- why do we need not use this.? isn't article service modified as private?
+    }
 }
