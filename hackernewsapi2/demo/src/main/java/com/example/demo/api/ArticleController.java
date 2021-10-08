@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 //Here is where the API is implemented
 
@@ -36,5 +37,15 @@ public class ArticleController {
     @GetMapping
     public List<Article> getAllArticles(){
         return articleService. getAllArticles(); //<-- why do we need not use this.? isn't article service modified as private?
+    }
+    //23. make sure to add a get request for a single json object putting pathvar in the method params
+    @GetMapping(path = "{key}")
+    //27. what this essentially does is that with the custom annotation: copy key and get article back for GET request
+    //28. the second function of the method is grabbing the key generated and turning it into a UUID
+        //UUID is a class that represents an immutable universaslly unique identifier that's in 128-bit value
+            //it provides a unique identity to any collection of information
+    public Article getArticleByKey(@PathVariable("key") UUID key){
+        return articleService.selectArticleByKey(key)
+                .orElse(null);
     }
 }

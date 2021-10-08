@@ -12,11 +12,18 @@ public interface ArticleDao {
     int insertArticle(UUID key, Article article);
     //here generates random UUIDS/IDs ?if? article does not have one
     default int addArticle(Article article){ // <-- why do you have to write default? Isn't it default already if no modifier specified?
-        UUID id = UUID.randomUUID();
-        return insertArticle(id, article);
+        UUID key = UUID.randomUUID();
+        return insertArticle(key, article);
     }
-    //18. now endpoint is needed now that request/post in postman working
+    //18. now endpoint is needed now that request/post in postman working. so make endpoints for all actions
     List<Article> selectAllArticles();
+    //24. delete
+    int deleteArticleByKey(UUID key);
+    //25. update/rewrite
+    int updateArticleByKey(UUID key, Article article);
+    Optional<Article> selectArticleByKey(UUID key);
+
+
 
 
 }

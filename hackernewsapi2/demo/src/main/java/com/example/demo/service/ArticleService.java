@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 //5. here we need to tell Spring that this class is the service injection???
 //because if we don't the constructor will not know what to do???
@@ -39,6 +41,9 @@ public class ArticleService {
     //20. now need to connect to implemented method selectAllArticles() that is connected to interface
     public List<Article> getAllArticles(){
          return articleDao.selectAllArticles();
+    }
+    public Optional<Article> selectArticleByKey(UUID key){
+         return articleDao.selectArticleByKey(key);
     }
 
 }
