@@ -15,6 +15,8 @@ public interface ArticleDao {
         UUID id = UUID.randomUUID();
         return insertArticle(id, article);
     }
+    //18. now endpoint is needed now that request/post in postman working
+    List<Article> selectAllArticles();
 
 
 }

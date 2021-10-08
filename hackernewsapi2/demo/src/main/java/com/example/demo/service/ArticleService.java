@@ -25,7 +25,7 @@ public class ArticleService {
         this.articleDao = articleDao;
     }
     //here we want to create a method to insert a new article
-    //9. want to make a POST request which adds a resource to serve (whereas GET is for retrieving data from server)
+    //9. want to make a POST request which adds a resource to server (whereas GET is for retrieving data from server)
     @PostMapping
     public int addArticle(Article article){
         //this now allows us to generate an article id if we want to

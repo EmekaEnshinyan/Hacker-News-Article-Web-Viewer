@@ -29,5 +29,13 @@ public class  ArticleAccessService implements ArticleDao {
         dataB.add(new Article(article.getKey(), article.getQKeyword(), article.getQTitle(), article.getQDate())); // <-- What does this do exactly?
         return 1; // <-- why are we returning 0? initializer for when id is inserted? so we know insertion always works
     }
+    //19. since new method is made in interface, it needs to be implemented here
+    @Override
+    public List<Article> selectAllArticles(){
+        return null;
+    }
+
+
+
 
 }

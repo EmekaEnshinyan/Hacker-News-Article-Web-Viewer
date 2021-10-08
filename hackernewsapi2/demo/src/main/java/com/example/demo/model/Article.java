@@ -12,7 +12,7 @@ public class Article {
     private String qDate;
     //12. when data is inputted in postman as json text, want to send that data to server
     //13. first need to define property into java class like putting @JSONPorperty below
-    public Article(@JsonProperty("id") UUID id, String keywords, @JsonProperty("title") String title, String when) { // TODO: <-- what exactly is a UUID
+    public Article(@JsonProperty("key") UUID id, String keywords, @JsonProperty("title") String title, String when) { // TODO: <-- what exactly is a UUID
         this.key = id;
         this.qKeywords = keywords;
         this.qTitle = title;
