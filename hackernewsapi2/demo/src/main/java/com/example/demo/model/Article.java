@@ -7,47 +7,41 @@ import java.util.*;
 public class Article {
 
     private UUID key;
-    private String qKeywords;
+    private String qKeyword;
     private String qTitle;
     private String qDate;
     //12. when data is inputted in postman as json text, want to send that data to server
     //13. first need to define property into java class like putting @JSONPorperty below
-    public Article(@JsonProperty("key") UUID id, String keywords, @JsonProperty("title") String title, String when) { // TODO: <-- what exactly is a UUID
-        this.key = id;
-        this.qKeywords = keywords;
-        this.qTitle = title;
-        this.qDate = when;
+    public Article(@JsonProperty("key") UUID key, String qKeyword, @JsonProperty("title") String qTitle, String qDate) { // TODO: <-- what exactly is a UUID
+        this.key = key;
+        this.qKeyword = qKeyword;
+        this.qTitle = qTitle;
+        this.qDate = qDate;
 
     }
 
-    //getters
-    public UUID getKey() {return key;}
-
-    public String getQKeyword() {return qKeywords;}
-
-    public String getQTitle() {
+    public UUID getKey() {
+        return key;
+    }
+    public String getQKeyword(){
+        return qKeyword;
+    }
+    public String getQTitle(){
         return qTitle;
     }
-
-    public String getQDate() {
+    public String getQDate(){
         return qDate;
     }
-
-
-    //setters
-    public void setKey(UUID id) {
-        this.key = id;
+    public void setKey(UUID key) {
+        this.key = key;
     }
-
-    public void setQKeywords(String keywords) {
-        this.qKeywords = keywords;
+    public void setQKeywords(String qKeyword){
+        this.qKeyword = qKeyword;
     }
-
-    public void setQTitle(String title) {
-        this.qTitle = title;
+    public void setQTitle(String qTitle){
+        this.qTitle = qTitle;
     }
-
-    public void setQDate(String when) {
-        this.qDate = when;
+    public void setQDate(String qDate){
+        this.qDate = qDate;
     }
 }

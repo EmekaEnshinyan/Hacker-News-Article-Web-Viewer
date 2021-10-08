@@ -28,11 +28,12 @@ public class ArticleController {
     //3. now a method that adds a person. here you can throw excpetion if fails?
     //15. here @request body is placed so server is receiving the JSON body from postman
     @PostMapping
-    //16. will take the reqwuest body and put it in article. essentially turning the JSON body INTO an article object
+    //16. will take the request body and put it in article. essentially turning the JSON body INTO an article object
     public void addArticle(@RequestBody Article article){
         articleService.addArticle(article);
     }
     //21. now need a method that will serve as the get request
+    @GetMapping
     public List<Article> getAllArticles(){
         return articleService. getAllArticles(); //<-- why do we need not use this.? isn't article service modified as private?
     }

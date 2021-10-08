@@ -28,7 +28,7 @@ public class  ArticleAccessService implements ArticleDao {
     @Override /*override requires
     corresponding method in supertype (in this case it's going to be the one in the interface.) Does this tell
     the compiler to call this method instead of interface one?*/
-    public int insertArticle(UUID key, Article article){
+    public int insertArticle(UUID id, Article article){
         dataB.add(new Article(article.getKey(), article.getQKeyword(), article.getQTitle(), article.getQDate())); // <-- What does this do exactly?
         return 1; // <-- why are we returning 0? initializer for when id is inserted? so we know insertion always works
     }

@@ -9,7 +9,7 @@ import java.util.*;
 
 public interface ArticleDao {
     //when this int typed method is implemented, can insert the article ID using injection
-    int insertArticle(UUID id, Article article);
+    int insertArticle(UUID key, Article article);
     //here generates random UUIDS/IDs ?if? article does not have one
     default int addArticle(Article article){ // <-- why do you have to write default? Isn't it default already if no modifier specified?
         UUID id = UUID.randomUUID();
