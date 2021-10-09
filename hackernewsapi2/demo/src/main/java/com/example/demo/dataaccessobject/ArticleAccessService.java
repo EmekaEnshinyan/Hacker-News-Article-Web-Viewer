@@ -42,6 +42,12 @@ public class  ArticleAccessService implements ArticleDao {
     //22. create a method that can delete an article
     @Override
     public int deleteArticleByKey(UUID key){
+        Optional<Article> articleExists = selectArticleByKey(key);
+        if (articleExists.isEmpty()) {
+            return 0;
+        }else{
+            boolean remove = dataB.remove(articleExists.get());
+        }
         return 0;
     }
     @Override

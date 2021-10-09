@@ -45,5 +45,9 @@ public class ArticleService {
     public Optional<Article> selectArticleByKey(UUID key){
          return articleDao.selectArticleByKey(key);
     }
+    //27. need to put same method here in service
+    public Optional<Article> getArticleByKey(UUID key){
+         return articleDao.selectArticleByKey(key);
+    }
 
 }
