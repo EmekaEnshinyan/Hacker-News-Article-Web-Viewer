@@ -49,5 +49,12 @@ public class ArticleService {
     public Optional<Article> getArticleByKey(UUID key){
          return articleDao.selectArticleByKey(key);
     }
+    //35. now place the delete handler in the controller class
+    public int deleteArticle(UUID key){
+         return articleDao.deleteArticleByKey(key);
+    }
+    public int updateArticle(UUID key){
+         return articleDao.updateArticleByKey(key);
+    }
 
 }

@@ -70,11 +70,9 @@ public class  ArticleAccessService implements ArticleDao {
                         }
                 ).orElse(0);
     }
-        @Override
+    @Override
         //26. in order to search in DB article by key first, stream DB
         public Optional<Article> selectArticleByKey (UUID key){
             return dataB.stream().filter(article -> article.getKey().equals(key)).findFirst();
         }
-
-
     }
