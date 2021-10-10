@@ -6,11 +6,13 @@ package com.example.demo.dataaccessobject;
 import com.example.demo.model.Article;
 
 import java.util.*;
-
+//this is an interface that acts as an abstract class that can have more than one abstract methods
 public interface ArticleDao {
     //when this int typed method is implemented, can insert the article ID using injection
+    //this is an ABSTRACT METHOD, which has no body
     int insertArticle(UUID key, Article article);
     //here generates random UUIDS/IDs ?if? article does not have one
+    //another abstract method
     default int addArticle(Article article){ // <-- why do you have to write default? Isn't it default already if no modifier specified?
         UUID key = UUID.randomUUID();
         return insertArticle(key, article);
