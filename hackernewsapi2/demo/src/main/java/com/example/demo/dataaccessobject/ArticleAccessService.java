@@ -31,6 +31,9 @@ public class  ArticleAccessService implements ArticleDao {
     public int insertArticle(UUID key, Article article) {
         dataB.add(new Article(key, article.getQKeyword(), article.getQTitle(), article.getQDate())); // <-- What does this do exactly?
         return 1; // <-- why are we returning 0? initializer for when id is inserted? so we know insertion always works
+        /*Answer: we can break it down and maybe that it clarify things?
+Article tmpArticle = new Article(key, article.getQKeyword(), article.getQTitle(), article.getQDate()); // Create a new copy of the provided article
+dataB.add(tmpArticle); // Add the article to our list of articles   */
     }
 
     //19. since new method is made in interface, it needs to be implemented here

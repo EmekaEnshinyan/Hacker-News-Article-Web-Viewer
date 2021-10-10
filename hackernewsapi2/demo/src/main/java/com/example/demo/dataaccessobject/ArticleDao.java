@@ -17,6 +17,10 @@ public interface ArticleDao {
         UUID key = UUID.randomUUID();
         return insertArticle(key, article);
     }
+    /*Answer: A 'default' method is 'public' with some extra stuff.  The difference between public and default is that
+    default methods are predefined in the interface. All classes that implement the interface get the function for free.
+    Public methods are declared in the interface and must be defined in all classes that implement the interface.*/
+
     //18. now endpoint is needed now that request/post in postman working. so make endpoints for all actions
     List<Article> selectAllArticles();
     //24. delete

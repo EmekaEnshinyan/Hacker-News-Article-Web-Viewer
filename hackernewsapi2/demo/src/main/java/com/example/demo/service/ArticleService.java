@@ -53,8 +53,8 @@ public class ArticleService {
     public int deleteArticle(UUID key){
          return articleDao.deleteArticleByKey(key);
     }
-    public int updateArticle(UUID key){
-         return articleDao.updateArticleByKey(key);
+    public int updateArticle(UUID key, Article article){
+         return articleDao.updateArticleByKey(key, article);
     }
 
 }
