@@ -27,5 +27,6 @@ public class InterfaceTest implements Practice {
         public void empty(){
 
         }
+
     }
 

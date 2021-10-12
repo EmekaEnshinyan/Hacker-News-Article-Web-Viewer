@@ -45,16 +45,19 @@ public class ArticleService {
     public Optional<Article> selectArticleByKey(UUID key){
          return articleDao.selectArticleByKey(key);
     }
+
     //27. need to put same method here in service
     public Optional<Article> getArticleByKey(UUID key){
          return articleDao.selectArticleByKey(key);
     }
+
     //35. now place the delete handler in the controller class
     public int deleteArticle(UUID key){
          return articleDao.deleteArticleByKey(key);
     }
-    public int updateArticle(UUID key, Article article){
-         return articleDao.updateArticleByKey(key, article);
+    //36. when updating article, we are making a new article?
+    public int updateArticle(UUID key, Article newArticle){ // <-- this almost looks like a new article is being made, but there is no logic that actually REWRITES the article
+         return articleDao.updateArticleByKey(key, newArticle);
     }
 
 }

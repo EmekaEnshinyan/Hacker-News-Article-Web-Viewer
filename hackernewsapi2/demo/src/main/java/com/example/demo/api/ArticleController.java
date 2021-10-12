@@ -1,11 +1,13 @@
 package com.example.demo.api;
 
 import com.example.demo.model.Article;
+import com.example.demo.model.pObject;
 import com.example.demo.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 //Here is where the API is implemented
@@ -48,4 +50,14 @@ public class ArticleController {
         return articleService.selectArticleByKey(key)
                 .orElse(null);
     }
+    @DeleteMapping(path = "{key}")
+    public void deleteArticle(@PathVariable("key") UUID key){
+        articleService.deleteArticle(key);
+    }
+    //38. this is the format to update an article
+    @PutMapping(path = "{key}")
+    public void updateArticle(@PathVariable("key") UUID key, @RequestBody Article articleToUpdate){
+         articleService.updateArticle(key, articleToUpdate);
+    }
+
 }

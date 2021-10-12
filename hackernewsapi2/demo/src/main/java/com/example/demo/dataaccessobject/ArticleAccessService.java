@@ -54,28 +54,43 @@ dataB.add(tmpArticle); // Add the article to our list of articles   */
         }
         return 1;
     }
+    @Override
+    //26. in order to search in DB article by key first, stream DB
+    public Optional<Article> selectArticleByKey (UUID key){
 
+        return dataB.stream().filter(article -> article.getKey().equals(key)).findFirst();
+    }
     @Override
     //31. this part i need to review
-    public int updateArticleByKey(UUID key, Article article) {
+    public int updateArticleByKey(UUID key, Article update) {
         //30. lambda expression used here in order to implement event listener
         //32. this method will select a article and map it onto a value diff than it was
-        return selectArticleByKey(key)
-                .map(p -> {
+
+                //37. update (PUT) doesn't work, so need to debug
+                //the { in p -> {} means that it is an interface function
+                //.map is an interface feature that contains key value pairs where the keys must be unqie but there can
+                // be nmore than one value, thus no sub-type of collections
+                //the below .map is a STREAM MAP that returns a stream consisting of the results of applying the given
+                //function to the elements of the sgtream.
+                    //there are two types of map: 1)
+               return selectArticleByKey(key).map(article -> {
                             int indexOfArticleToDelete = dataB.indexOf(article);
                             //33. if this is satisfied, than article found, otherwise return 0 and nothing happens
                              //TODO: 34. I decided to replace indexOf() with contains()
                             if (dataB.contains(article)) {
-                                dataB.set(indexOfArticleToDelete, article); // <-- what exactly is this expression doing? How does .orElse work?
+                                //the x.set() is an interface that is an unordered collection of objects  in which duplicate vlaues cannot be stored
+                                dataB.set(indexOfArticleToDelete, new Article(key, update.getQKeyword(), update.getQTitle(), update.getQDate())); // <-- what exactly is this expression doing? How does .orElse work?
                                 return 1;
                             }
-                            return 0;
+                      return 0;
                         }
+
                 ).orElse(0);
+               /*public int method(key, article){
+               *
+               * return
+               * }*/
+
     }
-    @Override
-        //26. in order to search in DB article by key first, stream DB
-        public Optional<Article> selectArticleByKey (UUID key){
-            return dataB.stream().filter(article -> article.getKey().equals(key)).findFirst();
-        }
+
     }
