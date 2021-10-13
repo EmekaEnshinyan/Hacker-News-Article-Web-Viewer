@@ -2,12 +2,14 @@ package com.example.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.constraints.NotBlank;
 import java.util.*;
 
 public class Article {
 
     private UUID key;
     private String qKeyword;
+    @NotBlank
     private String qTitle;
     private String qDate;
     //12. when data is inputted in postman as json text, want to send that data to server

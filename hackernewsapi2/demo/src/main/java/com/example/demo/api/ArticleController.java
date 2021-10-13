@@ -1,13 +1,13 @@
 package com.example.demo.api;
 
 import com.example.demo.model.Article;
-import com.example.demo.model.pObject;
 import com.example.demo.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 //Here is where the API is implemented
@@ -40,7 +40,7 @@ public class ArticleController {
     public List<Article> getAllArticles(){
         return articleService. getAllArticles(); //<-- why do we need not use this.? isn't article service modified as private?
     }
-    //23. make sure to add a get request for a single json object putting pathvar in the method params
+    //23. make sure to add a get request for a single json object putting path var in the method params
     @GetMapping(path = "{key}")
     //27. what this essentially does is that with the custom annotation: copy key and get article back for GET request
     //28. the second function of the method is grabbing the key generated and turning it into a UUID
@@ -56,8 +56,8 @@ public class ArticleController {
     }
     //38. this is the format to update an article
     @PutMapping(path = "{key}")
-    public void updateArticle(@PathVariable("key") UUID key, @RequestBody Article articleToUpdate){
-         articleService.updateArticle(key, articleToUpdate);
+    public void updateArticle(@PathVariable("key") @RequestBody Article articleToUpdate){
+        ArticleService.updateArticle(key, articleToUpdate);
     }
 
 }

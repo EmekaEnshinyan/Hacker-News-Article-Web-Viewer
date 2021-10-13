@@ -12,6 +12,6 @@ public class DemoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
-		System.out.println("YT Time Stamp (by minute): 49");
+		System.out.println("YT Time Stamp (by minute): 60");
 	}
 }

@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 //TODO //###MAY NOT WORK BECAUSE OF PACKAGE NAME??###
 import java.util.*;
+import java.util.stream.Stream;
+
 //this is where the ??? will implement the ArticleDao interface
 //4. here we want to tell Spring that the below class needs to be instantiated so that it can be
 //injected in other classes. We use repository injector
@@ -33,7 +35,7 @@ public class  ArticleAccessService implements ArticleDao {
         return 1; // <-- why are we returning 0? initializer for when id is inserted? so we know insertion always works
         /*Answer: we can break it down and maybe that it clarify things?
 Article tmpArticle = new Article(key, article.getQKeyword(), article.getQTitle(), article.getQDate()); // Create a new copy of the provided article
-dataB.add(tmpArticle); // Add the article to our list of articles   */
+dataB.add(tmpArticle); // Add the article to our list of articles */
     }
 
     //19. since new method is made in interface, it needs to be implemented here
@@ -74,23 +76,17 @@ dataB.add(tmpArticle); // Add the article to our list of articles   */
                 //function to the elements of the sgtream.
                     //there are two types of map: 1)
                return selectArticleByKey(key).map(article -> {
-                            int indexOfArticleToDelete = dataB.indexOf(article);
+                            int indexOfArticleToUpdate = dataB.indexOf(article);
                             //33. if this is satisfied, than article found, otherwise return 0 and nothing happens
-                             //TODO: 34. I decided to replace indexOf() with contains()
-                            if (dataB.contains(article)) {
+                             //TODO: 34. I decided to replace indexOf() with contains() / cancel
+                            if (indexOfArticleToUpdate >= 0) {
                                 //the x.set() is an interface that is an unordered collection of objects  in which duplicate vlaues cannot be stored
-                                dataB.set(indexOfArticleToDelete, new Article(key, update.getQKeyword(), update.getQTitle(), update.getQDate())); // <-- what exactly is this expression doing? How does .orElse work?
+                                dataB.set(indexOfArticleToUpdate, new Article(key, update.getQKeyword(), update.getQTitle(), update.getQDate())); // <-- what exactly is this expression doing? How does .orElse work?
                                 return 1;
                             }
                       return 0;
                         }
-
                 ).orElse(0);
-               /*public int method(key, article){
-               *
-               * return
-               * }*/
-
     }
 
     }
