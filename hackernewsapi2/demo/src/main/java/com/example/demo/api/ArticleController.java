@@ -1,5 +1,6 @@
 package com.example.demo.api;
 
+import com.example.demo.dataaccessobject.ArticleAccessService;
 import com.example.demo.model.Article;
 import com.example.demo.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
