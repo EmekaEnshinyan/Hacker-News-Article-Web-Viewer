@@ -58,7 +58,7 @@ public class ArticleController {
     //38. this is the format to update an article
     @PutMapping(path = "{key}")
     public void updateArticle(@PathVariable("key") @RequestBody Article articleToUpdate){
-        ArticleService.updateArticle(key, articleToUpdate);
+        ArticleService.(key, articleToUpdate);
     }
 
 }

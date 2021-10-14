@@ -56,6 +56,12 @@ dataB.add(tmpArticle); // Add the article to our list of articles */
         }
         return 1;
     }
+
+    @Override
+    public int addArticle(Article article) {
+        return ArticleDao.super.addArticle(article);
+    }
+
     @Override
     //26. in order to search in DB article by key first, stream DB
     public Optional<Article> selectArticleByKey (UUID key){

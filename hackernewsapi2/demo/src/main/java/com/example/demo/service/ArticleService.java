@@ -56,8 +56,8 @@ public class ArticleService {
          return articleDao.deleteArticleByKey(key);
     }
     //36. when updating article, we are making a new article?
-    public int updateArticle(UUID key, Article newArticle){ // <-- this almost looks like a new article is being made, but there is no logic that actually REWRITES the article
-         return articleDao.updateArticleByKey(key, newArticle);
+    public int updateArticle(UUID key){ // <-- this almost looks like a new article is being made, but there is no logic that actually REWRITES the article
+         return articleDao.updateArticleByKey(key);
     }
 
 }
