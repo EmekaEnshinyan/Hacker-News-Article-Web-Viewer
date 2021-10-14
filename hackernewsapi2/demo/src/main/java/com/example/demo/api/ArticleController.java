@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.UUID;
@@ -26,14 +27,14 @@ public class ArticleController {
     //2. need  constructor for controller
     //8. now add @autowired here to inject the service into constructor below
     @Autowired
-    public ArticleController(ArticleService articleService){
+    public ArticleController(@NotNull @NotBlank @Valid @RequestBody ArticleService articleService){
         this.articleService = articleService;
     }
     //3. now a method that adds a person. here you can throw excpetion if fails?
     //15. here @request body is placed so server is receiving the JSON body from postman
     @PostMapping
     //16. will take the request body and put it in article. essentially turning the JSON body INTO an article object
-    public void addArticle(@RequestBody Article article){
+    public void addArticle(@Valid @NotNull @RequestBody Article article){
         articleService.addArticle(article);
     }
     //21. now need a method that will serve as the get request
@@ -57,7 +58,8 @@ public class ArticleController {
     }
     //38. this is the format to update an article
     @PutMapping(path = "{key}")
-    public void updateArticle(@PathVariable("key") UUID key, @RequestBody Article articleToUpdate){
+    public void updateArticle(@PathVariable("key") UUID key, @Valid @NotNull @RequestBody Article articleToUpdate){ //<-- don't
+        // know what handlers are doing here
         articleService.updateArticle(key, articleToUpdate);
     }
 
