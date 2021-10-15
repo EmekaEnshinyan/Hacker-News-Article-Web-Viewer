@@ -1,12 +1,15 @@
 package com.example.demo.dataaccessobject;
 
 import com.example.demo.model.Article;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-//39. Suppose we wanted to make a PostGres relational database which would be the primary data store
-public class AccessArticleData implements ArticleDao {
+import static java.util.Optional.empty;
+
+@Repository("postgres")
+public class ArticleAccessData implements ArticleDao {
     @Override
     public int insertArticle(UUID key, Article article) {
         return 0;
@@ -19,7 +22,7 @@ public class AccessArticleData implements ArticleDao {
 
     @Override
     public List<Article> selectAllArticles() {
-        return null;
+        return List.of(new Article(UUID.randomUUID(), "keyword", "title", "date"));
     }
 
     @Override

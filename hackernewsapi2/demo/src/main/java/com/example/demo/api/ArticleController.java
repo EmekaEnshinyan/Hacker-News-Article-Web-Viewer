@@ -40,7 +40,7 @@ public class ArticleController {
     //21. now need a method that will serve as the get request
     @GetMapping
     public List<Article> getAllArticles(){
-        return articleService. getAllArticles(); //<-- why do we need not use this.? isn't article service modified as private?
+        return articleService.getAllArticles(); //<-- why do we need not use this.? isn't article service modified as private?
     }
     //23. make sure to add a get request for a single json object putting path var in the method params
     @GetMapping(path = "{key}")
