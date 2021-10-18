@@ -8,7 +8,7 @@ import java.util.Optional;
 import java.util.UUID;
 import static java.util.Optional.empty;
 
-@Repository("postgres")
+@Repository
 public class ArticleAccessData implements ArticleDao {
     @Override
     public int insertArticle(UUID key, Article article) {
@@ -22,7 +22,7 @@ public class ArticleAccessData implements ArticleDao {
 
     @Override
     public List<Article> selectAllArticles() {
-        return List.of(new Article(UUID.randomUUID(), "keyword", "title", "date"));
+        return List.of(new Article(UUID.randomUUID(), "keyword", "title", "date", "deleted", "type", "by", "url"));
     }
 
     @Override

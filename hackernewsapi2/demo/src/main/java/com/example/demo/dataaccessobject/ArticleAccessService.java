@@ -31,7 +31,8 @@ public class  ArticleAccessService implements ArticleDao {
     corresponding method in supertype (in this case it's going to be the one in the interface.) Does this tell
     the compiler to call this method instead of interface one?*/
     public int insertArticle(UUID key, Article article) {
-        dataB.add(new Article(key, article.getQKeyword(), article.getQTitle(), article.getQDate())); // <-- What does this do exactly?
+        dataB.add(new Article(key, article.getQKeyword(), article.getQTitle(), article.getQDate(),
+                article.getDeleted(), article.getType(), article.getBy(), article.getUrl())); // <-- What does this do exactly?
         return 1; // <-- why are we returning 0? initializer for when id is inserted? so we know insertion always works
         /*Answer: we can break it down and maybe that it clarify things?
 Article tmpArticle = new Article(key, article.getQKeyword(), article.getQTitle(), article.getQDate()); // Create a new copy of the provided article
@@ -87,7 +88,7 @@ dataB.add(tmpArticle); // Add the article to our list of articles */
                              //TODO: 34. I decided to replace indexOf() with contains() / cancel
                             if (indexOfArticleToUpdate >= 0) {
                                 //the x.set() is an interface that is an unordered collection of objects  in which duplicate vlaues cannot be stored
-                                dataB.set(indexOfArticleToUpdate, new Article(key, update.getQKeyword(), update.getQTitle(), update.getQDate())); // <-- what exactly is this expression doing? How does .orElse work?
+                                dataB.set(indexOfArticleToUpdate, new Article(key, update.getQKeyword(), update.getQTitle(), update.getQDate(), update.getDeleted(), update.getType(), update.getBy(), update.getUrl())); // <-- what exactly is this expression doing? How does .orElse work?
                                 return 1;
                             }
                       return 0;
