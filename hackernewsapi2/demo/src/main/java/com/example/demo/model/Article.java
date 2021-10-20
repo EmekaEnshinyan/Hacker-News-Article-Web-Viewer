@@ -39,6 +39,7 @@ public class Article {
 
     }
 
+
     public String getDeleted() {
         return deleted;
     }
