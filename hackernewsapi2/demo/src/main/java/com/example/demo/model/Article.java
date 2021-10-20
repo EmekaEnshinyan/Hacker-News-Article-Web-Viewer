@@ -1,5 +1,5 @@
 package com.example.demo.model;
-
+//2. make the Article body with the proper vars, constructor, getters k(may not need setters)
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.Valid;

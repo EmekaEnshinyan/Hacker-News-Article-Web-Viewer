@@ -12,20 +12,11 @@ import java.util.stream.Stream;
 //this is where the ??? will implement the ArticleDao interface
 //4. here we want to tell Spring that the below class needs to be instantiated so that it can be
 //injected in other classes. We use repository injector
-@Repository("test dao")
-public class  ArticleAccessService implements ArticleDao {
+    @Repository("test dao")
+    public class  ArticleAccessService implements ArticleDao {
 
-    //may not want to use a simple list? Perhaps ArrayList is better?
-    /*private static void arrList(ArrayList arrOne){
-        ArrayList<Article> arrTwo = new ArrayList<>();
-        for(Article i: arrTwo) {
-            arrOne.add(arrTwo.get(0));
-        }
-    }*/
     private static List<Article> dataB = new ArrayList<>(); //<-- why can you not put void here? returning something?
     //use enhanced for loop since dealing with collection
-
-
     //now need to implement methods from interface.
     @Override /*override requires
     corresponding method in supertype (in this case it's going to be the one in the interface.) Does this tell
@@ -33,7 +24,7 @@ public class  ArticleAccessService implements ArticleDao {
     public int insertArticle(UUID key, Article article) {
         dataB.add(new Article(key, article.getQKeyword(), article.getQTitle(), article.getQDate(),
                 article.getDeleted(), article.getType(), article.getBy(), article.getUrl())); // <-- What does this do exactly?
-        return 1; // <-- why are we returning 0? initializer for when id is inserted? so we know insertion always works
+        return 1; // <-- why are we returning 0? initializer for when id is inserted? so we know insertion always work
         /*Answer: we can break it down and maybe that it clarify things?
 Article tmpArticle = new Article(key, article.getQKeyword(), article.getQTitle(), article.getQDate()); // Create a new copy of the provided article
 dataB.add(tmpArticle); // Add the article to our list of articles */

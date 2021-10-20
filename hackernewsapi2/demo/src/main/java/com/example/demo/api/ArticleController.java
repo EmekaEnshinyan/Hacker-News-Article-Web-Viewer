@@ -46,7 +46,7 @@ public class ArticleController {
     @GetMapping(path = "{key}")
     //27. what this essentially does is that with the custom annotation: copy key and get article back for GET request
     //28. the second function of the method is grabbing the key generated and turning it into a UUID
-        //UUID is a class that represents an immutable universaslly unique identifier that's in 128-bit value
+        //UUID is a class that represents an immutable universally unique identifier that's in 128-bit value
             //it provides a unique identity to any collection of information
     public Article getArticleByKey(@PathVariable("key") UUID key){
         return articleService.selectArticleByKey(key)
