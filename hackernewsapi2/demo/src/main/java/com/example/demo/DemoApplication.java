@@ -21,12 +21,6 @@ public class DemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 		//TECHNIQUE 2: using java.net.http.httpclient. will handle asynchronous operations for you
-		HttpClient httpClient = HttpClient.newHttpClient();
-		HttpRequest request = HttpRequest.newBuilder().uri(URI.create("https://hacker-news.firebaseio.com/v0/item/28902662.json?print=pretty")).build();
-		httpClient.sendAsync(request, HttpResponse.BodyHandlers.ofString())
-				.thenApply(HttpResponse::body)
-				.thenAccept(System.out::println)
-				.join();
-		System.out.println("YT Time Stamp (by minute): 60");
+		System.out.println("They're Made Out of Meat");
 	}
 }
