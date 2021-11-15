@@ -2,9 +2,8 @@ package com.example.hackerNewsApiToWeb.controller;
 
 import com.example.hackerNewsApiToWeb.model.ArticleParse;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,10 +16,8 @@ import java.util.List;
 import static java.lang.System.in;
 
 @RestController
-
+@RequestMapping(path = "/hn")
 public class ArticleController {
-
-
 
     @CrossOrigin(origins = "http://lcoalhost:8080")
     @GetMapping("/articles")
@@ -50,32 +47,17 @@ public class ArticleController {
 
         //checks to see if JSON data cluster was a complex object or just an array
 
-
-            ObjectMapper objectMapper = new ObjectMapper();
-            //parses the JSON data containing key/value pairs
-            ArticleParse articleParse = objectMapper.readValue(jsonResponseData.toString(), ArticleParse.class);
-
-
-
-
-
+        ObjectMapper objectMapper = new ObjectMapper();
+        //parses the JSON data containing key/value pairs
+        ArticleParse articleParse = objectMapper.readValue(jsonResponseData.toString(), ArticleParse.class);
 
 
         System.out.println(articleParse.getBy() + " " + articleParse.getDescendants() + " "
-                    + articleParse.getId() + " " + String.join(", ", articleParse.getKids()) + " " + articleParse.getScore()
-                    + " " + articleParse.getTime() + " " + articleParse.getTitle() + " "
-                    + articleParse.getType() + " " + articleParse.getUrl());
+                + articleParse.getId() + " " + String.join(", ", articleParse.getKids()) + " " + articleParse.getScore()
+                + " " + articleParse.getTime() + " " + articleParse.getTitle() + " "
+                + articleParse.getType() + " " + articleParse.getUrl());
 
         return articleParse;
-    }
-        @CrossOrigin(origins = "http://localhost:8080")
-        @GetMapping("/test")
-        public List<Integer> getAP(){
-        List <Integer> a = new ArrayList<>();
-        a.set(0, 1);
-        a.set(1, 2);
-        return a;
-
     }
 }
 
