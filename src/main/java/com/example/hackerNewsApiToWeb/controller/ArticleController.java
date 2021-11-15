@@ -16,10 +16,11 @@ import java.util.List;
 import static java.lang.System.in;
 
 @RestController
+@CrossOrigin
 @RequestMapping(path = "/hn")
 public class ArticleController {
 
-    @CrossOrigin(origins = "http://lcoalhost:8080")
+
     @GetMapping("/articles")
     public ArticleParse getArticles() throws IOException {
 

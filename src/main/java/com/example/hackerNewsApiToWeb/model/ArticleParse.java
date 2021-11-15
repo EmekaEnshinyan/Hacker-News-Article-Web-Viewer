@@ -29,6 +29,7 @@ public class ArticleParse {
         this.type = type;
         this.url = url;
     }
+    @Autowired
     public ArticleParse(){}
 
     public String getBy() {
