@@ -16,6 +16,7 @@ import java.util.List;
 import static java.lang.System.in;
 
 @RestController
+//CORS Policy fix
 @CrossOrigin
 @RequestMapping(path = "/hn")
 public class ArticleController {
