@@ -16,10 +16,12 @@ import java.util.List;
 import static java.lang.System.in;
 
 @RestController
+//CORS Policy fix
+@CrossOrigin
 @RequestMapping(path = "/hn")
 public class ArticleController {
 
-    @CrossOrigin(origins = "http://lcoalhost:8080")
+
     @GetMapping("/articles")
     public ArticleParse getArticles() throws IOException {
 
