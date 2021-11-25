@@ -17,5 +17,5 @@ public class HackerNewsApiToWebApplication {
 	}
 
 
-
+//web: java -jar target/HackerNews-API-Design-Back-End-1.0.jar
 }
