@@ -21,7 +21,7 @@ import java.util.*;
     the compiler to call this method instead of interface one?*/
     public int insertArticle(UUID key, Article article) {
         //TODO: kids array needs to be fixed
-        dataB.add(new Article(article.getBy(), article.getDescendants(), article.getId(), article.getKids(), article.getScore(), article.getTime(), article.getTitle()), article.getType(), article.getUrl()); // <-- What does this do exactly?
+        dataB.add(new Article(article.getBy(), article.getDescendants(), article.getId(), article.getScore(), article.getTime(), article.getTitle(), article.getType(), article.getUrl())); // <-- What does this do exactly?
         return 1; // <-- why are we returning 0? initializer for when id is inserted? so we know insertion always work
         /*Answer: we can break it down and maybe that it clarify things?
 Article tmpArticle = new Article(key, article.getQKeyword(), article.getQTitle(), article.getQDate()); // Create a new copy of the provided article
@@ -71,7 +71,9 @@ dataB.add(tmpArticle); // Add the article to our list of articles */
                             if (indexOfArticleToUpdate >= 0) {
                                 //the x.set() is an interface that is an unordered collection of objects  in which duplicate vlaues cannot be stored
                                 //TODO: kids array needs fixing
-                                dataB.set(indexOfArticleToUpdate, new Article(key, update.getBy(), update.getDescendants(), update.getId(), update.getKids(), update.getScore(), update.getTime(), update.getTitle(), update.getType(), update.getUrl()); // <-- what exactly is this expression doing? How does .orElse work?
+                                dataB.set(indexOfArticleToUpdate, new Article(update.getBy(),
+                                        update.getDescendants(), update.getId(), update.getScore(),
+                                        update.getTime(), update.getTitle(), update.getType(), update.getUrl())); // <-- what exactly is this expression doing? How does .orElse work?
                                 return 1;
                             }
                       return 0;

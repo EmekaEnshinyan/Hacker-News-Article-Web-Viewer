@@ -22,7 +22,7 @@ public class ArticleAccessData implements ArticleDao {
     @Override
     public List<Article> selectAllArticles() {
         //TODO: argument fix needed
-        return List.of(new Article("by", 0, 0, toString[1], 0, 0, "title", "type", "url"));
+        return List.of(new Article("by", 0, 0, 0, 0, "title", "type", "url"));
     }
 
     @Override
