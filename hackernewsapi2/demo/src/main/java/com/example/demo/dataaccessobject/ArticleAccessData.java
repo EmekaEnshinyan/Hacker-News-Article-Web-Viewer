@@ -1,11 +1,12 @@
-package com.example.hackerNewsApiToWeb.dataaccessobject;
+package com.example.demo.dataaccessobject;
 
-import com.example.hackerNewsApiToWeb.model.Article;
+import com.example.demo.model.Article;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import static java.util.Optional.empty;
 
 @Repository
 public class ArticleAccessData implements ArticleDao {
@@ -21,8 +22,7 @@ public class ArticleAccessData implements ArticleDao {
 
     @Override
     public List<Article> selectAllArticles() {
-        //TODO: argument fix needed
-        return List.of(new Article("by", "descendants", "id", "kids", "score", "time", "title", "type", "url"));
+        return List.of(new Article(UUID.randomUUID(), "keyword", "title", "date", "deleted", "type", "by", "url"));
     }
 
     @Override

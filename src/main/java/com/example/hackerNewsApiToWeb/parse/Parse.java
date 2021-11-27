@@ -1,17 +1,13 @@
 package com.example.hackerNewsApiToWeb.parse;
 
-import com.example.hackerNewsApiToWeb.model.ArticleParse;
+import com.example.hackerNewsApiToWeb.model.Article;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Arrays;
 
 import static java.lang.System.in;
@@ -58,21 +54,21 @@ public class Parse {
             } else {
                 ObjectMapper objectMapper = new ObjectMapper();
                 //parses the JSON data containing key/value pairs
-                ArticleParse articleParse = objectMapper.readValue(jsonResponseData.toString(), ArticleParse.class);
-                System.out.println("deserialized JSON key/value object : " + articleParse.getBy() + " " + articleParse.getDescendants() + " "
-                        + articleParse.getId() + " " + String.join(", ", articleParse.getKids()) + " " + articleParse.getScore()
-                        + " " + articleParse.getTime() + " " + articleParse.getTitle() + " "
-                        + articleParse.getType() + " " + articleParse.getUrl());
+                Article article = objectMapper.readValue(jsonResponseData.toString(), Article.class);
+                System.out.println("deserialized JSON key/value object : " + article.getBy() + " " + article.getDescendants() + " "
+                        + article.getId() + " " + String.join(", ", article.getKids()) + " " + article.getScore()
+                        + " " + article.getTime() + " " + article.getTitle() + " "
+                        + article.getType() + " " + article.getUrl());
 
                 //tests writing some JSON data onto .txt file
                 //Defining the file name and path
                 /*Path fileName = Path.of("C:\\Users\\gnier\\Documents\\hackernewsapi3\\hackernewsapi2\\demo\\src\\main\\java\\testone.txt");
 
                 // Write into the file
-                Files.writeString(fileName, articleParse.getBy() + " " + articleParse.getDescendants() + " "
-                        + articleParse.getId() + " " + String.join(", ", articleParse.getKids()) + " " + articleParse.getScore()
-                        + " " + articleParse.getTime() + " " + articleParse.getTitle() + " "
-                        + articleParse.getType() + " " + articleParse.getUrl());
+                Files.writeString(fileName, article.getBy() + " " + article.getDescendants() + " "
+                        + article.getId() + " " + String.join(", ", article.getKids()) + " " + article.getScore()
+                        + " " + article.getTime() + " " + article.getTitle() + " "
+                        + article.getType() + " " + article.getUrl());
                 System.out.println();
                 // Read the content of the file
                 String file_content = Files.readString(fileName);

@@ -1,11 +1,13 @@
-package com.example.hackerNewsApiToWeb.dataaccessobject;
-import com.example.hackerNewsApiToWeb.controller.ArticleController;
-import com.example.hackerNewsApiToWeb.model.Article;
-import com.example.hackerNewsApiToWeb.service.ArticleService;
-import com.example.hackerNewsApiToWeb.model.Article;
+package com.example.demo.dataaccessobject;
+import com.example.demo.api.ArticleController;
+import com.example.demo.model.Article;
+import com.example.demo.service.ArticleService;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 //TODO //###MAY NOT WORK BECAUSE OF PACKAGE NAME??###
 import java.util.*;
+import java.util.stream.Stream;
 
 //this is where the ??? will implement the ArticleDao interface
 //4. here we want to tell Spring that the below class needs to be instantiated so that it can be
@@ -20,9 +22,8 @@ import java.util.*;
     corresponding method in supertype (in this case it's going to be the one in the interface.) Does this tell
     the compiler to call this method instead of interface one?*/
     public int insertArticle(UUID key, Article article) {
-        dataB.add(new Article(key, article.getBy(), article.getDescendants(), article.getId()
-                //TODO: this is an array
-                article.getKids()), article.getScore(), article.getTime(), article.getTitle()), article.getType(), article.getUrl()); // <-- What does this do exactly?
+        dataB.add(new Article(key, article.getQKeyword(), article.getQTitle(), article.getQDate(),
+                article.getDeleted(), article.getType(), article.getBy(), article.getUrl())); // <-- What does this do exactly?
         return 1; // <-- why are we returning 0? initializer for when id is inserted? so we know insertion always work
         /*Answer: we can break it down and maybe that it clarify things?
 Article tmpArticle = new Article(key, article.getQKeyword(), article.getQTitle(), article.getQDate()); // Create a new copy of the provided article
@@ -39,7 +40,13 @@ dataB.add(tmpArticle); // Add the article to our list of articles */
     //22. create a method that can delete an article
     @Override
     public int deleteArticleByKey(UUID key) {
-       return 0;
+        Optional<Article> articleExists = selectArticleByKey(key);
+        if (articleExists.isEmpty()) {
+            return 0;
+        } else {
+            dataB.remove(articleExists.get());
+        }
+        return 1;
     }
 
     @Override
@@ -50,7 +57,8 @@ dataB.add(tmpArticle); // Add the article to our list of articles */
     @Override
     //26. in order to search in DB article by key first, stream DB
     public Optional<Article> selectArticleByKey (UUID key){
-    return null;
+
+        return dataB.stream().filter(article -> article.getKey().equals(key)).findFirst();
     }
     @Override
     //31. this part i need to review
@@ -71,8 +79,7 @@ dataB.add(tmpArticle); // Add the article to our list of articles */
                              //TODO: 34. I decided to replace indexOf() with contains() / cancel
                             if (indexOfArticleToUpdate >= 0) {
                                 //the x.set() is an interface that is an unordered collection of objects  in which duplicate vlaues cannot be stored
-                                //TODO: array here that needs to be resolved
-                                dataB.set(indexOfArticleToUpdate, new Article(key, update.getBy(), update.getDescendants(), update.getId(), update.getKids[](), update.getScore(), update.getTime(), update.getTitle(), update.getType(), update.getUrl()); // <-- what exactly is this expression doing? How does .orElse work?
+                                dataB.set(indexOfArticleToUpdate, new Article(key, update.getQKeyword(), update.getQTitle(), update.getQDate(), update.getDeleted(), update.getType(), update.getBy(), update.getUrl())); // <-- what exactly is this expression doing? How does .orElse work?
                                 return 1;
                             }
                       return 0;

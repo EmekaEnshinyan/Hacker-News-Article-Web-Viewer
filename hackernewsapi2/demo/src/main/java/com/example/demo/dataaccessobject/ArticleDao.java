@@ -1,9 +1,9 @@
 //this interface is an abstract class thaqt is used to hide details of objects
 //using the implements keyword
 //set constraints for anyone who wants to use interface
-package com.example.hackerNewsApiToWeb.dataaccessobject;
+package com.example.demo.dataaccessobject;
 
-import com.example.hackerNewsApiToWeb.model.Article;
+import com.example.demo.model.Article;
 
 import java.util.*;
 //this is an interface that acts as an abstract class that can have more than one abstract methods

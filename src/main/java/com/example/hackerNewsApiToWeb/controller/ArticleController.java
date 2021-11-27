@@ -1,8 +1,7 @@
 package com.example.hackerNewsApiToWeb.controller;
 
-import com.example.hackerNewsApiToWeb.model.ArticleParse;
+import com.example.hackerNewsApiToWeb.model.Article;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.BufferedReader;
@@ -10,8 +9,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 import static java.lang.System.in;
 //heroku test
@@ -23,7 +20,7 @@ public class ArticleController {
 
 
     @GetMapping("/articles")
-    public ArticleParse getArticles() throws IOException {
+    public Article getArticles() throws IOException {
 
         URL getUrl = new URL("https://hacker-news.firebaseio.com/v0/item/29042728.json?print=pretty");
         //Top 500 Articles
@@ -51,15 +48,15 @@ public class ArticleController {
 
         ObjectMapper objectMapper = new ObjectMapper();
         //parses the JSON data containing key/value pairs
-        ArticleParse articleParse = objectMapper.readValue(jsonResponseData.toString(), ArticleParse.class);
+        Article article = objectMapper.readValue(jsonResponseData.toString(), Article.class);
 
 
-        System.out.println(articleParse.getBy() + " " + articleParse.getDescendants() + " "
-                + articleParse.getId() + " " + String.join(", ", articleParse.getKids()) + " " + articleParse.getScore()
-                + " " + articleParse.getTime() + " " + articleParse.getTitle() + " "
-                + articleParse.getType() + " " + articleParse.getUrl());
+        System.out.println(article.getBy() + " " + article.getDescendants() + " "
+                + article.getId() + " " + String.join(", ", article.getKids()) + " " + article.getScore()
+                + " " + article.getTime() + " " + article.getTitle() + " "
+                + article.getType() + " " + article.getUrl());
 
-        return articleParse;
+        return article;
     }
 }
 

@@ -3,7 +3,7 @@ package com.example.hackerNewsApiToWeb.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class ArticleParse {
+public class Article {
     private String by;
     private int descendants;
     private int id;
@@ -17,7 +17,7 @@ public class ArticleParse {
     //12. when data is inputted in postman as json text, want to send that data to server
     //13. first need to define property into java class like putting @JSONPorperty below
     @Autowired
-    public ArticleParse(String by, int descendants, int id, String[] kids, int score, int time, String title, String type, String url) {
+    public Article(String by, int descendants, int id, String[] kids, int score, int time, String title, String type, String url) {
         super();
         this.by = by;
         this.descendants = descendants;
@@ -30,7 +30,7 @@ public class ArticleParse {
         this.url = url;
     }
     @Autowired
-    public ArticleParse(){}
+    public Article(){}
 
     public String getBy() {
         return by;
