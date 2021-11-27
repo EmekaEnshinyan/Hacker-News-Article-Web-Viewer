@@ -1,13 +1,11 @@
-package com.example.demo.dataaccessobject;
+package com.example.hackerNewsApiToWeb.dataaccessobject;
 import com.example.demo.api.ArticleController;
 import com.example.demo.model.Article;
 import com.example.demo.service.ArticleService;
+import com.example.hackerNewsApiToWeb.model.ArticleParse;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 //TODO //###MAY NOT WORK BECAUSE OF PACKAGE NAME??###
 import java.util.*;
-import java.util.stream.Stream;
 
 //this is where the ??? will implement the ArticleDao interface
 //4. here we want to tell Spring that the below class needs to be instantiated so that it can be
@@ -15,7 +13,7 @@ import java.util.stream.Stream;
     @Repository("test dao")
     public class  ArticleAccessService implements ArticleDao {
 
-    private static List<Article> dataB = new ArrayList<>(); //<-- why can you not put void here? returning something?
+    private static List<ArticleParse> dataB = new ArrayList<>(); //<-- why can you not put void here? returning something?
     //use enhanced for loop since dealing with collection
     //now need to implement methods from interface.
     @Override /*override requires

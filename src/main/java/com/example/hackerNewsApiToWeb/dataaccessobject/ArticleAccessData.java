@@ -1,4 +1,4 @@
-package com.example.demo.dataaccessobject;
+package com.example.hackerNewsApiToWeb.dataaccessobject;
 
 import com.example.demo.model.Article;
 import org.springframework.stereotype.Repository;
@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import static java.util.Optional.empty;
 
 @Repository
 public class ArticleAccessData implements ArticleDao {
