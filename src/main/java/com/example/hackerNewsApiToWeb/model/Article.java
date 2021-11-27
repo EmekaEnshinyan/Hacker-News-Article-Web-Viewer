@@ -2,8 +2,12 @@ package com.example.hackerNewsApiToWeb.model;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.UUID;
+
 //TODO: going to remove kids field and test
 public class Article {
+    //private UUID uuid;
     private String by;
     private int descendants;
     private int[] kids;
@@ -30,7 +34,7 @@ public class Article {
         this.url = url;
     }
     @Autowired
-    public Article(){}
+    public Article(String by, String descendants, String id, String score, String title, String type, String url){}
 
     public String getBy() {
         return by;
@@ -54,6 +58,7 @@ public class Article {
     public int[] getKids(){
         return kids;
     }
+
 
     public int getId() {
         return id;

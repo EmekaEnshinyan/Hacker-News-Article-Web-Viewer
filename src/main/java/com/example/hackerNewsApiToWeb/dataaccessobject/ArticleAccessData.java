@@ -4,10 +4,7 @@ import com.example.hackerNewsApiToWeb.model.Article;
 import org.springframework.stereotype.Repository;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Repository
 public class ArticleAccessData implements ArticleDao {
@@ -22,9 +19,9 @@ public class ArticleAccessData implements ArticleDao {
     }
 
     @Override
-    public ArrayList<Article> selectAllArticles() {
+    public List<Article> selectAllArticles() {
         //TODO: argument fix needed
-        return ArrayList(new Article("by", "descendants", [???], "id", "score", "title", "type", "url"));
+        return List.of(new Article("by", "descendants" , "kids" "id", "score", "title", "type", "url"));
     }
 
     @Override
