@@ -1,13 +1,9 @@
 package com.example.demo.service;
 
-import com.example.demo.client.HackerNewClient;
 import com.example.demo.dataaccessobject.ArticleDao;
 import com.example.demo.model.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
