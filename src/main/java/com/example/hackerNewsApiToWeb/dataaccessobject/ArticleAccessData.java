@@ -3,6 +3,8 @@ package com.example.hackerNewsApiToWeb.dataaccessobject;
 import com.example.hackerNewsApiToWeb.model.Article;
 import org.springframework.stereotype.Repository;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -20,9 +22,9 @@ public class ArticleAccessData implements ArticleDao {
     }
 
     @Override
-    public List<Article> selectAllArticles() {
+    public ArrayList<Article> selectAllArticles() {
         //TODO: argument fix needed
-        return List.of(new Article("by", 0, 0, 0, 0, "title", "type", "url"));
+        return ArrayList(new Article("by", "descendants", [???], "id", "score", "title", "type", "url"));
     }
 
     @Override

@@ -55,8 +55,8 @@ public class Parse {
                 ObjectMapper objectMapper = new ObjectMapper();
                 //parses the JSON data containing key/value pairs
                 Article article = objectMapper.readValue(jsonResponseData.toString(), Article.class);
-                System.out.println("deserialized JSON key/value object : " + article.getBy() + " " + article.getDescendants() + " "
-                        + article.getId() + " " + " " + article.getScore()
+                System.out.println("deserialized JSON key/value object : " + article.getBy() + " " + article.getDescendants() + " " + article.getKids() +
+                       " " + article.getId() + " " + " " + article.getScore()
                         + " " + article.getTime() + " " + article.getTitle() + " "
                         + article.getType() + " " + article.getUrl());
 
