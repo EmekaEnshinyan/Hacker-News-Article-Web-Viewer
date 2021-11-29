@@ -3,15 +3,11 @@ package com.example.hackerNewsApiToWeb.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.UUID;
-
-//TODO: going to remove kids field and test
 public class Article {
-    //private UUID uuid;
     private String by;
     private int descendants;
-    private int[] kids;
     private int id;
+    private String[] kids;
     private int score;
     private int time;
     private String title;
@@ -21,12 +17,12 @@ public class Article {
     //12. when data is inputted in postman as json text, want to send that data to server
     //13. first need to define property into java class like putting @JSONPorperty below
     @Autowired
-    public Article(String by, int descendants, int[] kids, int id, int score, int time, String title, String type, String url) {
+    public Article(String by, int descendants, int id, String[] kids, int score, int time, String title, String type, String url) {
         super();
         this.by = by;
         this.descendants = descendants;
-        this.kids = kids;
         this.id = id;
+        this.kids = kids;
         this.score = score;
         this.time = time;
         this.title = title;
@@ -34,7 +30,7 @@ public class Article {
         this.url = url;
     }
     @Autowired
-    public Article(String by, String descendants, String id, String score, String title, String type, String url){}
+    public Article(){}
 
     public String getBy() {
         return by;
@@ -52,20 +48,20 @@ public class Article {
         this.descendants = descendants;
     }
 
-    public void setKids(int[] kids){
-        this.kids = kids;
-    }
-    public int[] getKids(){
-        return kids;
-    }
-
-
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public CharSequence[] getKids() {
+        return kids;
+    }
+
+    public void setKids(String[] kids) {
+        this.kids = kids;
     }
 
     public int getScore() {

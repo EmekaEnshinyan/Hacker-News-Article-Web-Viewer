@@ -5,7 +5,10 @@ package com.example.hackerNewsApiToWeb.dataaccessobject;
 
 import com.example.hackerNewsApiToWeb.model.Article;
 
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 //this is an interface that acts as an abstract class that can have more than one abstract methods
 public interface ArticleDao {
     //when this int typed method is implemented, can insert the article ID using injection
