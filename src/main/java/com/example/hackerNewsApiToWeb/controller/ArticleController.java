@@ -52,12 +52,11 @@ public class ArticleController {
 
 
         System.out.println(article.getBy() + " " + article.getDescendants() + " "
-                + article.getId() + article.getScore()
+                + article.getId() + " " + String.join(", ", article.getKids()) + " " + article.getScore()
                 + " " + article.getTime() + " " + article.getTitle() + " "
                 + article.getType() + " " + article.getUrl());
 
         return article;
     }
 }
-
 
