@@ -25,7 +25,7 @@ public interface ArticleDao {
     Public methods are declared in the interface and must be defined in all classes that implement the interface.*/
 
     //18. now endpoint is needed now that request/post in postman working. so make endpoints for all actions
-    List<Article> selectAllArticles();
+    //List<Article> selectAllArticles();
     //24. delete
     int deleteArticleByKey(UUID key);
     //25. update/rewrite

@@ -1,9 +1,13 @@
 package com.example.hackerNewsApiToWeb.model;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.UUID;
+
 public class Article {
+    private UUID uuid;
     private String by;
     private int descendants;
     private int id;
@@ -17,8 +21,13 @@ public class Article {
     //12. when data is inputted in postman as json text, want to send that data to server
     //13. first need to define property into java class like putting @JSONPorperty below
     @Autowired
-    public Article(String by, int descendants, int id, String[] kids, int score, int time, String title, String type, String url) {
+    public Article(@JsonProperty("uuid") UUID uuid, @JsonProperty("by") String by,
+                   @JsonProperty("descendants") int descendants, @JsonProperty("id") int id,
+                   @JsonProperty("kids") String[] kids, @JsonProperty("score") int score,
+                   @JsonProperty("time") int time, @JsonProperty("title") String title,
+                   @JsonProperty("type") String type, @JsonProperty("url") String url) {
         super();
+        this.uuid = uuid;
         this.by = by;
         this.descendants = descendants;
         this.id = id;
@@ -31,6 +40,10 @@ public class Article {
     }
     @Autowired
     public Article(){}
+
+    public UUID getUuid(){return uuid;}
+
+    public void setUuid(UUID uuid){this.uuid = uuid;}
 
     public String getBy() {
         return by;
