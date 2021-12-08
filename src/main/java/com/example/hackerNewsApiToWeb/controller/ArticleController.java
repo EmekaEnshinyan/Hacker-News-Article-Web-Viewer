@@ -51,7 +51,7 @@ public class ArticleController {
         Article article = objectMapper.readValue(jsonResponseData.toString(), Article.class);
 
 
-        System.out.println(article.getBy() + " " + article.getDescendants() + " "
+        System.out.println(article.getUuid() + " " + article.getBy() + " " + article.getDescendants() + " "
                 + article.getId() + " " + String.join(", ", article.getKids()) + " " + article.getScore()
                 + " " + article.getTime() + " " + article.getTitle() + " "
                 + article.getType() + " " + article.getUrl());
