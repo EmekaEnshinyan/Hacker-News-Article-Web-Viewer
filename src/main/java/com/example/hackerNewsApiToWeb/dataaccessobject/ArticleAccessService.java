@@ -1,4 +1,4 @@
-package com.example.hackerNewsApiToWeb.service;
+package com.example.hackerNewsApiToWeb.dataaccessobject;
 
 import com.example.hackerNewsApiToWeb.dataaccessobject.ArticleDao;
 import com.example.hackerNewsApiToWeb.model.Article;
@@ -17,17 +17,10 @@ public class ArticleAccessService implements ArticleDao {
 
 
     private static List<Article> dataB = new ArrayList<>();
-    @Override /*override requires
+    /*override requires
     corresponding method in supertype (in this case it's going to be the one in the interface.) Does this tell
     the compiler to call this method instead of interface one?*/
-    public int insertArticle(UUID unique, Article article) {
-        dataB.add(new Article(unique, article.getBy(), article.getDescendants(), article.getId(),
-                (String []) article.getKids(), article.getScore(), article.getTime(), article.getTitle(), article.getType(), article.getUrl())); // <-- What does this do exactly?
-        return 1; // <-- why are we returning 0? initializer for when id is inserted? so we know insertion always work
-        /*Answer: we can break it down and maybe that it clarify things?
-Article tmpArticle = new Article(key, article.getQKeyword(), article.getQTitle(), article.getQDate()); // Create a new copy of the provided article
-dataB.add(tmpArticle); // Add the article to our list of articles */
-    }
+
 
     //19. since new method is made in interface, it needs to be implemented here
     //20. need to return the database since that's where the articles are going to be after POST
@@ -35,7 +28,12 @@ dataB.add(tmpArticle); // Add the article to our list of articles */
     public List<Article> selectAllArticles() {
         return dataB;
     }*/
+    @Override
+    //26. in order to search in DB article by key first, stream DB
+    public Optional<Article> selectArticleByKey (UUID unique){
 
+        return dataB.stream().filter(article -> article.getUnique().equals(unique)).findFirst();
+    }
     //22. create a method that can delete an article
     @Override
     public int deleteArticleByKey(UUID key) {
@@ -48,17 +46,7 @@ dataB.add(tmpArticle); // Add the article to our list of articles */
         return 1;
     }
 
-    @Override
-    public int addArticle(Article article) {
-        return ArticleDao.super.addArticle(article);
-    }
 
-    @Override
-    //26. in order to search in DB article by key first, stream DB
-    public Optional<Article> selectArticleByKey (UUID key){
-
-        return dataB.stream().filter(article -> article.getUnique().equals(key)).findFirst();
-    }
     @Override
     //31. this part i need to review
     public int updateArticleByKey(UUID unique, Article update) {
