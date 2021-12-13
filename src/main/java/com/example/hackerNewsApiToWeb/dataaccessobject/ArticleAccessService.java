@@ -48,8 +48,8 @@ public class ArticleAccessService implements ArticleDao {
     }
     //22. create a method that can delete an article
     @Override
-    public int deleteArticleByKey(UUID key) {
-        Optional<Article> articleExists = selectArticleByKey(key);
+    public int deleteArticleByKey(UUID unique) {
+        Optional<Article> articleExists = selectArticleByKey(unique);
         if (articleExists.isEmpty()) {
             return 0;
         } else {
@@ -78,7 +78,11 @@ public class ArticleAccessService implements ArticleDao {
                     //TODO: 34. I decided to replace indexOf() with contains() / cancel
                     if (indexOfArticleToUpdate >= 0) {
                         //the x.set() is an interface that is an unordered collection of objects  in which duplicate vlaues cannot be stored
-                        dataB.set(indexOfArticleToUpdate, new Article(unique, update.getBy(), update.getDescendants(), update.getId(), (String []) update.getKids(), update.getScore(), update.getTime(), update.getTitle(), update.getType(), update.getUrl())); // <-- what exactly is this expression doing? How does .orElse work?
+                        dataB.set(
+                                indexOfArticleToUpdate, new Article(unique, update.getBy(),
+                                update.getDescendants(), update.getId(), (String []) update.getKids(),
+                                update.getScore(), update.getTime(), update.getTitle(), update.getType(),
+                                update.getUrl())); // <-- what exactly is this expression doing? How does .orElse work?
                         return 1;
                     }
                     return 0;

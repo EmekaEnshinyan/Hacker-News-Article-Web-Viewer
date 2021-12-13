@@ -11,7 +11,12 @@ import java.util.UUID;
 public class ArticleAccessData implements ArticleDao{
 
     @Override
-    public int insertArticle(UUID key, Article article) {
+    public Optional<Article> selectArticleByKey(UUID unique){
+        return Optional.empty();
+    }
+
+    @Override
+    public int insertArticle(UUID unique, Article article) {
         return 0;
     }
 
@@ -28,11 +33,6 @@ public class ArticleAccessData implements ArticleDao{
     @Override
     public int updateArticleByKey(UUID unique, Article article) {
         return 0;
-    }
-
-    @Override
-    public Optional<Article> selectArticleByKey(UUID unique){
-        return Optional.empty();
     }
 
 
