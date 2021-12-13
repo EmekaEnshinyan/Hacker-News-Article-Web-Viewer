@@ -25,6 +25,11 @@ public interface ArticleDao {
 
     //18. now endpoint is needed now that request/post in postman working. so make endpoints for all actions
     //24. delete
+    int insertArticle(UUID key, Article article);
+    default int addArticle(Article article){ // <-- why do you have to write default? Isn't it default already if no modifier specified?
+        UUID unique = UUID.randomUUID();
+        return insertArticle(unique, article);
+    }
     int deleteArticleByKey(UUID unique);
     //25. update/rewrite
     int updateArticleByKey(UUID unique, Article article);
