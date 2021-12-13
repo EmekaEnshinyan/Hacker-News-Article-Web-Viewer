@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HackerNews-API-Design-Back-End.iml" filepath="$PROJECT_DIR$/HackerNews-API-Design-Back-End.iml" />
-      <module fileurl="file://$PROJECT_DIR$/hackernewsapi2/demo/demo.iml" filepath="$PROJECT_DIR$/hackernewsapi2/demo/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/hackerNewsApiToWeb.iml" filepath="$PROJECT_DIR$/hackerNewsApiToWeb.iml" />
     </modules>
   </component>

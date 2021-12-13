@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.UUID;
 
 public class Article {
-    private UUID uuid;
+    private UUID unique;
     private String by;
     private int descendants;
     private int id;
@@ -21,13 +21,13 @@ public class Article {
     //12. when data is inputted in postman as json text, want to send that data to server
     //13. first need to define property into java class like putting @JSONPorperty below
     @Autowired
-    public Article(@JsonProperty("uuid") UUID uuid, @JsonProperty("by") String by,
+    public Article(@JsonProperty("unique") UUID unique, @JsonProperty("by") String by,
                    @JsonProperty("descendants") int descendants, @JsonProperty("id") int id,
                    @JsonProperty("kids") String[] kids, @JsonProperty("score") int score,
                    @JsonProperty("time") int time, @JsonProperty("title") String title,
                    @JsonProperty("type") String type, @JsonProperty("url") String url) {
         super();
-        this.uuid = uuid;
+        this.unique = unique;
         this.by = by;
         this.descendants = descendants;
         this.id = id;
@@ -41,9 +41,9 @@ public class Article {
     @Autowired
     public Article(){}
 
-    public UUID getUuid(){return uuid;}
+    public UUID getUnique(){return unique;}
 
-    public void setUuid(UUID uuid){this.uuid = uuid;}
+    public void setUnique(UUID unique){this.unique = unique;}
 
     public String getBy() {
         return by;

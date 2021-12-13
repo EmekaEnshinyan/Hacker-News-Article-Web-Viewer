@@ -10,7 +10,7 @@ import java.util.UUID;
 @Repository
 public class ArticleAccessData implements ArticleDao{
     @Override
-    public int insertArticle(UUID uuid, Article article) {
+    public int insertArticle(UUID unique, Article article) {
         return 0;
     }
 
@@ -21,21 +21,21 @@ public class ArticleAccessData implements ArticleDao{
 
 
     /*public List<Article> selectAllArticles() {
-        return List.of(new Article(UUID.randomUUID(), "by", "descendants", "id", "kids", "score", "time", "title", "type", "url"));
+        return List.of(new Article(UUID.randomUUID(), "by", , "id", "kids", "score", "time", "title", "type", "url"));
     }*/
 
     @Override
-    public int deleteArticleByKey(UUID uuid) {
+    public int deleteArticleByKey(UUID unique) {
         return 0;
     }
 
     @Override
-    public int updateArticleByKey(UUID uuid, Article article) {
+    public int updateArticleByKey(UUID unique, Article article) {
         return 0;
     }
 
     @Override
-    public Optional<Article> selectArticleByKey(UUID uuid) {
+    public Optional<Article> selectArticleByKey(UUID unique) {
         return Optional.empty();
     }
 }
