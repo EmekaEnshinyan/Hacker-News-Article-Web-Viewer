@@ -9,7 +9,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Arrays;
 
+import static com.example.hackerNewsApiToWeb.parse.Parse.hackerNewsJsonObjectParse;
 import static java.lang.System.in;
 //heroku test
 @RestController
@@ -59,4 +61,3 @@ public class ArticleController {
         return article;
     }
 }
-

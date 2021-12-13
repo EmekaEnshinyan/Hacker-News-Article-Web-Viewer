@@ -40,7 +40,7 @@ public class ArticleService {
         return articleDao.selectArticleByKey(key);
     }
 
-    //35. now place the delete handler in the controller class
+    //35. now place then delete handler in the controller class
     public int deleteArticle(UUID key){
         return articleDao.deleteArticleByKey(key);
     }

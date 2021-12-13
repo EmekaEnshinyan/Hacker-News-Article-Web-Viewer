@@ -18,6 +18,8 @@ public class HackerNewsApiToWebApplication {
 		SpringApplication.run(HackerNewsApiToWebApplication.class, args);
 
 		hackerNewsJsonObjectParse();
+
+
 	}
 
 
