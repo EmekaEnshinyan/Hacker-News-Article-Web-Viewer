@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.UUID;
 
 public class Article {
-    private UUID unique;
+    private static UUID unique;
     private String by;
     private int descendants;
     private int id;

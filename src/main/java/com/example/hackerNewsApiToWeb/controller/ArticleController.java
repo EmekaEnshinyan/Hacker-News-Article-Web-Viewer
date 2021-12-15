@@ -1,7 +1,10 @@
 package com.example.hackerNewsApiToWeb.controller;
 
 import com.example.hackerNewsApiToWeb.model.Article;
+import com.example.hackerNewsApiToWeb.service.ArticleService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.jetbrains.annotations.NotNull;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.BufferedReader;
@@ -20,6 +23,12 @@ import static java.lang.System.in;
 @RequestMapping(path = "/hn")
 public class ArticleController {
 
+/*  private final ArticleService articleService;
+
+   @Autowired
+    public ArticleController(@RequestBody ArticleService articleService) {
+        this.articleService = articleService;
+    }*/
 
     @GetMapping("/articles")
     public Article getArticles() throws IOException {
@@ -50,14 +59,15 @@ public class ArticleController {
 
         ObjectMapper objectMapper = new ObjectMapper();
         //parses the JSON data containing key/value pairs
-        Article article = objectMapper.readValue(jsonResponseData.toString(), Article.class);
+        Article parsed = objectMapper.readValue(jsonResponseData.toString(), Article.class);
 
 
-        System.out.println(article.getUnique() + " " + article.getBy() + " " + article.getDescendants() + " "
-                + article.getId() + " " + String.join(", ", article.getKids()) + " " + article.getScore()
-                + " " + article.getTime() + " " + article.getTitle() + " "
-                + article.getType() + " " + article.getUrl());
+        System.out.println("parsed JSON data stout: " + parsed.getUnique() + " " + parsed.getBy() + " "
+                + parsed.getDescendants() + " " + parsed.getId() + " " + String.join(", ", parsed.getKids())
+                + " " + parsed.getScore()
+                + " " + parsed.getTime() + " " + parsed.getTitle() + " "
+                + parsed.getType() + " " + parsed.getUrl());
 
-        return article;
+        return parsed;
     }
 }
