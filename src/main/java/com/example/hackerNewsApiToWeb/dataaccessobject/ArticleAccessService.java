@@ -37,13 +37,12 @@ public class ArticleAccessService implements ArticleDao {
     public int insertArticle(UUID unique, Article article) {
         dataB.add(new Article(unique, article.getBy(), article.getDescendants(), article.getId(),
                 (String []) article.getKids(), article.getScore(), article.getTime(),
-                article.getTitle(), article.getType(), article.getUrl())); // <-- What does this do exactly?
+                article.getTitle(), article.getType(), article.getUrl()));
         return 1;
     }
     @Override
     //26. in order to search in DB article by key first, stream DB
     public Optional<Article> selectArticleByKey (UUID unique){
-
         return dataB.stream().filter(article -> article.getUnique().equals(unique)).findFirst();
     }
     //22. create a method that can delete an article

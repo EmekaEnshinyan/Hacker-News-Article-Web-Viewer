@@ -31,43 +31,7 @@ public class ArticleController {
     }*/
 
     @GetMapping("/articles")
-    public Article getArticles() throws IOException {
-
-        URL getUrl = new URL("https://hacker-news.firebaseio.com/v0/item/29042728.json?print=pretty");
-        //Top 500 Articles
-        // https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty
-        //Proxy Article
-        // https://hacker-news.firebaseio.com/v0/item/29042728.json?print=pretty
-        HttpURLConnection connection = (HttpURLConnection) getUrl.openConnection();
-        //sets request
-
-        //gets response
-        //int responseCode = connection.getResponseCode();
-        //if connection (200 OK) made, data buffered
-        BufferedReader art = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-        StringBuffer jsonResponseData = new StringBuffer();
-        String readLine = null;
-
-        //appends data from response line by line
-        while ((readLine = art.readLine()) != null) {
-            jsonResponseData.append(readLine);
-        }
-        in.close();
-
-
-        //checks to see if JSON data cluster was a complex object or just an array
-
-        ObjectMapper objectMapper = new ObjectMapper();
-        //parses the JSON data containing key/value pairs
-        Article parsed = objectMapper.readValue(jsonResponseData.toString(), Article.class);
-
-
-        System.out.println("parsed JSON data stout: " + parsed.getUnique() + " " + parsed.getBy() + " "
-                + parsed.getDescendants() + " " + parsed.getId() + " " + String.join(", ", parsed.getKids())
-                + " " + parsed.getScore()
-                + " " + parsed.getTime() + " " + parsed.getTitle() + " "
-                + parsed.getType() + " " + parsed.getUrl());
-
-        return parsed;
+    public Article requestArticles() throws IOException {
+        return hackerNewsJsonObjectParse();
     }
 }
