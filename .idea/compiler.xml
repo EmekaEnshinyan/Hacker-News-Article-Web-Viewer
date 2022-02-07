@@ -6,19 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="java-getting-started" />
-        <module name="demo" />
+        <module name="HackerNews-API-Design-Back-End" />
         <module name="hackerNewsApiToWeb" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="demo" target="15" />
-      <module name="hackerNewsApiToWeb" target="15" />
+      <module name="HackerNews-API-Design-Back-End" target="9" />
+      <module name="hackerNewsApiToWeb" target="11" />
       <module name="java-getting-started" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="HackerNews-API-Design-Back-End" options="-parameters" />
       <module name="demo" options="-parameters" />
       <module name="hackerNewsApiToWeb" options="-parameters" />
       <module name="java-getting-started" options="-parameters" />
