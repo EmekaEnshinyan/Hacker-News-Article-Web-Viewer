@@ -60,9 +60,9 @@ dataB.add(tmpArticle); // Add the article to our list of articles */
 
         return dataB.stream().filter(article -> article.getKey().equals(key)).findFirst();
     }
-    @Override
-    //31. this part i need to review
-    public int updateArticleByKey(UUID key, Article update) {
+   /* @Override
+   */ //31. this part i need to review
+   /* public int updateArticleByKey(UUID key, Article update) {
         //30. lambda expression used here in order to implement event listener
         //32. this method will select a article and map it onto a value diff than it was
 
@@ -85,6 +85,6 @@ dataB.add(tmpArticle); // Add the article to our list of articles */
                       return 0;
                         }
                 ).orElse(0);
-    }
+    }*/
 
     }

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/hackernewsapi2/demo/demo.iml" filepath="$PROJECT_DIR$/hackernewsapi2/demo/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/hackerNewsApiToWeb.iml" filepath="$PROJECT_DIR$/hackerNewsApiToWeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-getting-started.iml" filepath="$PROJECT_DIR$/java-getting-started.iml" />
     </modules>
   </component>
 </project>

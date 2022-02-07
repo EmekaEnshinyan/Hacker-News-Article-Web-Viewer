@@ -26,7 +26,6 @@ public interface ArticleDao {
     //24. delete
     int deleteArticleByKey(UUID key);
     //25. update/rewrite
-    int updateArticleByKey(UUID key, Article article);
     Optional<Article> selectArticleByKey(UUID key);
 
 

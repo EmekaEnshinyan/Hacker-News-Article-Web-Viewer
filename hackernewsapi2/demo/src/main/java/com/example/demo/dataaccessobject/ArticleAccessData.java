@@ -30,10 +30,10 @@ public class ArticleAccessData implements ArticleDao {
         return 0;
     }
 
-    @Override
+/*    @Override
     public int updateArticleByKey(UUID key, Article article) {
         return 0;
-    }
+    }*/
 
     @Override
     public Optional<Article> selectArticleByKey(UUID key) {
