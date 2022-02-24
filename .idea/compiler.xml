@@ -12,7 +12,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="demo" target="15" />
-      <module name="HackerNews-API-Design-Back-End" target="9" />
+      <module name="HackerNews-API-Design-Back-End" target="11" />
       <module name="hackerNewsApiToWeb" target="11" />
       <module name="java-getting-started" target="1.8" />
     </bytecodeTargetLevel>
