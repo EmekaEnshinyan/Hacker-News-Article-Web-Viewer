@@ -18,9 +18,10 @@ import static java.lang.System.in;
 @RequestMapping(path = "/hn")
 public class ArticleController {
 
-
+    //this method includes parsing the article
     @GetMapping("/articles")
-    public Article getArticles() throws IOException {
+    public Article callArticleAndParse() throws IOException {
+
 
         URL getUrl = new URL("https://hacker-news.firebaseio.com/v0/item/29042728.json?print=pretty");
         //Top 500 Articles
@@ -28,10 +29,7 @@ public class ArticleController {
         //Proxy Article
         // https://hacker-news.firebaseio.com/v0/item/29042728.json?print=pretty
         HttpURLConnection connection = (HttpURLConnection) getUrl.openConnection();
-        //sets request
 
-        //gets response
-        //int responseCode = connection.getResponseCode();
         //if connection (200 OK) made, data buffered
         BufferedReader art = new BufferedReader(new InputStreamReader(connection.getInputStream()));
         StringBuffer jsonResponseData = new StringBuffer();
@@ -43,15 +41,12 @@ public class ArticleController {
         }
         in.close();
 
-
-        //checks to see if JSON data cluster was a complex object or just an array
-
         ObjectMapper objectMapper = new ObjectMapper();
         //parses the JSON data containing key/value pairs
         Article article = objectMapper.readValue(jsonResponseData.toString(), Article.class);
 
 
-        System.out.println(article.getUnique() + " " + article.getBy() + " " + article.getDescendants() + " "
+        System.out.println(article.getBy() + " " + article.getDescendants() + " "
                 + article.getId() + " " + String.join(", ", article.getKids()) + " " + article.getScore()
                 + " " + article.getTime() + " " + article.getTitle() + " "
                 + article.getType() + " " + article.getUrl());

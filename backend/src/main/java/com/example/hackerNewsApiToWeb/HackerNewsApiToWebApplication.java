@@ -7,17 +7,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.IOException;
 import java.lang.*;
-
-import static com.example.hackerNewsApiToWeb.parse.Parse.hackerNewsJsonObjectParse;
-
 @SpringBootApplication
 public class HackerNewsApiToWebApplication {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 
 		SpringApplication.run(HackerNewsApiToWebApplication.class, args);
 
-		hackerNewsJsonObjectParse();
 	}
 
 

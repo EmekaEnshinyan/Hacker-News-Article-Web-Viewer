@@ -17,16 +17,12 @@ public class ArticleAccessService implements ArticleDao {
 
 
     private static List<Article> dataB = new ArrayList<>();
-    @Override /*override requires
-    corresponding method in supertype (in this case it's going to be the one in the interface.) Does this tell
-    the compiler to call this method instead of interface one?*/
-    public int insertArticle(UUID unique, Article article) {
-        dataB.add(new Article(unique, article.getBy(), article.getDescendants(), article.getId(),
-                (String []) article.getKids(), article.getScore(), article.getTime(), article.getTitle(), article.getType(), article.getUrl())); // <-- What does this do exactly?
-        return 1; // <-- why are we returning 0? initializer for when id is inserted? so we know insertion always work
-        /*Answer: we can break it down and maybe that it clarify things?
-Article tmpArticle = new Article(key, article.getQKeyword(), article.getQTitle(), article.getQDate()); // Create a new copy of the provided article
-dataB.add(tmpArticle); // Add the article to our list of articles */
+
+    @Override
+    public int addArticle(Article article) {
+        dataB.add(new Article(article.getBy(), article.getDescendants(), article.getId(),
+                (String[]) article.getKids(), article.getScore(), article.getTime(), article.getTitle(), article.getType(), article.getUrl())); // <-- What does this do exactly?
+        return 1;
     }
 
     //19. since new method is made in interface, it needs to be implemented here
@@ -35,55 +31,14 @@ dataB.add(tmpArticle); // Add the article to our list of articles */
     public List<Article> selectAllArticles() {
         return dataB;
     }*/
-
-    //22. create a method that can delete an article
     @Override
-    public int deleteArticleByKey(UUID key) {
-        Optional<Article> articleExists = selectArticleByKey(key);
-        if (articleExists.isEmpty()) {
+    public int deleteArticle(Article article) {
+
+        if (dataB.isEmpty()) {
             return 0;
         } else {
-            dataB.remove(articleExists.get());
+            dataB.remove(article);
         }
         return 1;
     }
-
-    @Override
-    public int addArticle(Article article) {
-        return ArticleDao.super.addArticle(article);
-    }
-
-    @Override
-    //26. in order to search in DB article by key first, stream DB
-    public Optional<Article> selectArticleByKey (UUID key){
-
-        return dataB.stream().filter(article -> article.getUnique().equals(key)).findFirst();
-    }
-    @Override
-    //31. this part i need to review
-    public int updateArticleByKey(UUID unique, Article update) {
-        //30. lambda expression used here in order to implement event listener
-        //32. this method will select a article and map it onto a value diff than it was
-
-        //37. update (PUT) doesn't work, so need to debug
-        //the { in p -> {} means that it is an interface function
-        //.map is an interface feature that contains key value pairs where the keys must be unqie but there can
-        // be nmore than one value, thus no sub-type of collections
-        //the below .map is a STREAM MAP that returns a stream consisting of the results of applying the given
-        //function to the elements of the sgtream.
-        //there are two types of map: 1)
-        return selectArticleByKey(unique).map(article -> {
-                    int indexOfArticleToUpdate = dataB.indexOf(article);
-                    //33. if this is satisfied, than article found, otherwise return 0 and nothing happens
-                    //TODO: 34. I decided to replace indexOf() with contains() / cancel
-                    if (indexOfArticleToUpdate >= 0) {
-                        //the x.set() is an interface that is an unordered collection of objects  in which duplicate vlaues cannot be stored
-                        dataB.set(indexOfArticleToUpdate, new Article(unique, update.getBy(), update.getDescendants(), update.getId(), (String []) update.getKids(), update.getScore(), update.getTime(), update.getTitle(), update.getType(), update.getUrl())); // <-- what exactly is this expression doing? How does .orElse work?
-                        return 1;
-                    }
-                    return 0;
-                }
-        ).orElse(0);
-    }
-
 }
