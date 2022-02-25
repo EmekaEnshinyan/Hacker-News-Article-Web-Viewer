@@ -1,3 +1,9 @@
+/**
+ * NEED TWO EVENTS
+ * 1. send GET request
+ * 2. have the article parsed
+ *
+ */
 package com.example.hackerNewsApiToWeb.controller;
 
 import com.example.hackerNewsApiToWeb.model.Article;
@@ -13,45 +19,13 @@ import java.net.URL;
 import static java.lang.System.in;
 //heroku test
 @RestController
-//CORS Policy fix
-@CrossOrigin
-@RequestMapping(path = "/hn")
+@RequestMapping(path = "/param1")
 public class ArticleController {
 
-    //this method includes parsing the article
-    @GetMapping("/articles")
-    public Article callArticleAndParse() throws IOException {
-
-
-        URL getUrl = new URL("https://hacker-news.firebaseio.com/v0/item/29042728.json?print=pretty");
-        //Top 500 Articles
-        // https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty
-        //Proxy Article
-        // https://hacker-news.firebaseio.com/v0/item/29042728.json?print=pretty
-        HttpURLConnection connection = (HttpURLConnection) getUrl.openConnection();
-
-        //if connection (200 OK) made, data buffered
-        BufferedReader art = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-        StringBuffer jsonResponseData = new StringBuffer();
-        String readLine = null;
-
-        //appends data from response line by line
-        while ((readLine = art.readLine()) != null) {
-            jsonResponseData.append(readLine);
-        }
-        in.close();
-
-        ObjectMapper objectMapper = new ObjectMapper();
-        //parses the JSON data containing key/value pairs
-        Article article = objectMapper.readValue(jsonResponseData.toString(), Article.class);
-
-
-        System.out.println(article.getBy() + " " + article.getDescendants() + " "
-                + article.getId() + " " + String.join(", ", article.getKids()) + " " + article.getScore()
-                + " " + article.getTime() + " " + article.getTitle() + " "
-                + article.getType() + " " + article.getUrl());
-
-        return article;
+    @GetMapping(path = "/param2")
+    //indicates that value can be requested via any http query (?name=emeka)
+    public static void restTest(@RequestParam(required = false, defaultValue = "") String name){
+        System.out.println("Hello, " + name + "!");
     }
 }
 
