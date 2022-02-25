@@ -21,7 +21,7 @@ Fundamental function:
 ###### The following tools are required to to have the application run:
 - Java 15 (can also be run on Java 8)
 - Apache-Maven version 15
-- Internet connection for the API calls
+- Internet connection for the API
 
 ## Setup
 
