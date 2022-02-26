@@ -4,7 +4,9 @@ package com.example.hackerNewsApiToWeb.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.lang.annotation.Documented;
 import java.util.UUID;
+
 
 public class Article {
     //private UUID unique;

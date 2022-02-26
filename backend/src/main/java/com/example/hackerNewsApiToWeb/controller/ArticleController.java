@@ -19,13 +19,13 @@ import java.net.URL;
 import static java.lang.System.in;
 //heroku test
 @RestController
-@RequestMapping(path = "/param1")
+@RequestMapping
 public class ArticleController {
 
-    @GetMapping(path = "/param2")
+    @GetMapping
     //indicates that value can be requested via any http query (?name=emeka)
     public static void restTest(@RequestParam(required = false, defaultValue = "") String name){
-        System.out.println("Hello, " + name + "!");
+        System.out.println("Hello, " + name + "!"); //pings localhost and returns name when ?name=[name] entered after localhost
     }
 }
 
