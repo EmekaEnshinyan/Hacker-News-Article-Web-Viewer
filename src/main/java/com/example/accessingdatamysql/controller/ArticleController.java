@@ -26,7 +26,8 @@ public class ArticleController {
         Article article = new Article();
         article.setTitle(name);
         article.setBy(by);
-        ArticleRepository.save(article);
+        //save method is not being recognized
+        //ArticleRepository.save(article);
         return "Saved";
     }
 
