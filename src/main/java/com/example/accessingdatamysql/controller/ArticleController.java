@@ -18,14 +18,15 @@ public class ArticleController {
     private ArticleRepository articleRepository;
 
     @PostMapping(path="/add") // Map ONLY POST Requests
-    public @ResponseBody String addArticle (@RequestParam String title
-            , @RequestParam String link) {
+    public @ResponseBody String addNewUser (@RequestParam String name
+            , @RequestParam String by) {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
 
         Article article = new Article();
-        article.setTitle(title);
-        articleRepository.save(article);
+        article.setTitle(name);
+        article.setBy(by);
+        ArticleRepository.save(article);
         return "Saved";
     }
 
