@@ -10,6 +10,7 @@ import java.lang.annotation.Documented;
 import java.util.UUID;
 
 @Entity
+@Table(name = "article")
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,6 +18,7 @@ public class Article {
     private Long key;
     private String by;
     private int descendants;
+    @Column(unique = true)
     private int id;
     private String[] kids;
     private int score;
