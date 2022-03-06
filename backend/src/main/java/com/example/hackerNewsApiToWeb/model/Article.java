@@ -2,7 +2,9 @@ package com.example.hackerNewsApiToWeb.model;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import nonapi.io.github.classgraph.json.Id;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import java.lang.annotation.Documented;
 import java.util.UUID;
