@@ -15,7 +15,4 @@ public class HackerNewsApiToWebApplication {
 		SpringApplication.run(HackerNewsApiToWebApplication.class, args);
 
 	}
-
-
-//web: java -jar target/HackerNews-API-Design-Back-End-1.0.jar
 }

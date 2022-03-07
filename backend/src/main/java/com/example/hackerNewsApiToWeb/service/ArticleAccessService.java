@@ -20,7 +20,7 @@ public class ArticleAccessService implements ArticleDao {
 
     @Override
     public int addArticle(Article article) {
-        dataB.add(new Article(article.getBy(), article.getDescendants(), article.getId(),
+        dataB.add(new Article(article.getUuid(), article.getBy(), article.getDescendants(), article.getId(),
                 (String[]) article.getKids(), article.getScore(), article.getTime(), article.getTitle(), article.getType(), article.getUrl())); // <-- What does this do exactly?
         return 1;
     }

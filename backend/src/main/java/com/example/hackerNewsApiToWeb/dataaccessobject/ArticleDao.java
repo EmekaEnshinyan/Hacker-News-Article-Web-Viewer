@@ -9,8 +9,15 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface ArticleDao {
+    //Put
     int addArticle(Article article);
+    //Delete
     int deleteArticle(Article article);
+
+    //Post
+    //int updateArticle(Article article);
+
+    //GET
 
 
 
