@@ -21,13 +21,13 @@ import static java.lang.System.in;
 @RestController
 //CORS Policy Fix
 @CrossOrigin
-@RequestMapping
+@RequestMapping (path = "/hn")
 public class ArticleController {
 
-    @GetMapping
+    @GetMapping ("/articles")
     //indicates that value can be requested via any http query (?name=emeka)
-    public static Article practiceController(@RequestParam(required = false, defaultValue = "") String name) throws IOException{
-        System.out.println("Hello, " + name + "!"); //pings localhost and returns name when ?name=[name] entered after localhost
+    public Article requestArticle() throws IOException{
+
         URL getUrl = new URL("https://hacker-news.firebaseio.com/v0/item/29042728.json?print=pretty");
         //Top 500 Articles
         // https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty
