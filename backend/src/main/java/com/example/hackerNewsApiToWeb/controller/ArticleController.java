@@ -17,22 +17,22 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import static java.lang.System.in;
-
 @RestController
 //CORS Policy Fix
 @CrossOrigin
 @RequestMapping (path = "/hn")
 public class ArticleController {
 
-    @GetMapping ("/articles")
+    @GetMapping (path = "/articles")
     //indicates that value can be requested via any http query (?name=emeka)
-    public Article requestArticle() throws IOException{
+    public void requestArticle(@RequestParam(required = false, defaultValue = "") String link) throws IOException{
 
-        URL getUrl = new URL("https://hacker-news.firebaseio.com/v0/item/29042728.json?print=pretty");
+
+        URL getUrl = new URL(link);
         //Top 500 Articles
-        // https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty
+        // "https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty"
         //Proxy Article
-        // https://hacker-news.firebaseio.com/v0/item/29042728.json?print=pretty
+        // "https://hacker-news.firebaseio.com/v0/item/29042728.json?print=pretty"
         HttpURLConnection connection = (HttpURLConnection) getUrl.openConnection();
         //sets request
 
@@ -62,7 +62,6 @@ public class ArticleController {
                 + " " + article.getTime() + " " + article.getTitle() + " "
                 + article.getType() + " " + article.getUrl());
 
-        return article;
     }
 }
 

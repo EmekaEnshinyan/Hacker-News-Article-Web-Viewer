@@ -23,14 +23,6 @@ public class Article {
     private String type;
     private String url;
 
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
     //12. when data is inputted in postman as json text, want to send that data to server
     //13. first need to define property into java class like putting @JSONPorperty below
     @Autowired
@@ -54,9 +46,13 @@ public class Article {
     @Autowired
     public Article(){}
 
-    /*public UUID getUnique(){return unique;}
+    public UUID getUuid() {
+        return uuid;
+    }
 
-    public void setUnique(UUID unique){this.unique = unique;}*/
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
+    }
 
     public String getBy() {
         return by;
