@@ -11,8 +11,8 @@ import java.util.UUID;
 
 
 public class Article {
-    //private UUID unique;
-    private int num;
+
+    private UUID uuid;
     private String by;
     private int descendants;
     private int id;
@@ -23,16 +23,24 @@ public class Article {
     private String type;
     private String url;
 
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
+    }
+
     //12. when data is inputted in postman as json text, want to send that data to server
     //13. first need to define property into java class like putting @JSONPorperty below
     @Autowired
-    public Article(@JsonProperty("by") String by,
+    public Article(UUID uuid, @JsonProperty("by") String by,
                    @JsonProperty("descendants") int descendants, @JsonProperty("id") int id,
                    @JsonProperty("kids") String[] kids, @JsonProperty("score") int score,
                    @JsonProperty("time") int time, @JsonProperty("title") String title,
                    @JsonProperty("type") String type, @JsonProperty("url") String url) {
         super();
-      //  this.unique = unique;
+        this.uuid = uuid;
         this.by = by;
         this.descendants = descendants;
         this.id = id;

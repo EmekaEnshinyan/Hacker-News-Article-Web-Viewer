@@ -17,15 +17,52 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import static java.lang.System.in;
-//heroku test
+
 @RestController
+//CORS Policy Fix
+@CrossOrigin
 @RequestMapping
 public class ArticleController {
 
     @GetMapping
     //indicates that value can be requested via any http query (?name=emeka)
-    public static void restTest(@RequestParam(required = false, defaultValue = "") String name){
+    public static Article practiceController(@RequestParam(required = false, defaultValue = "") String name) throws IOException{
         System.out.println("Hello, " + name + "!"); //pings localhost and returns name when ?name=[name] entered after localhost
+        URL getUrl = new URL("https://hacker-news.firebaseio.com/v0/item/29042728.json?print=pretty");
+        //Top 500 Articles
+        // https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty
+        //Proxy Article
+        // https://hacker-news.firebaseio.com/v0/item/29042728.json?print=pretty
+        HttpURLConnection connection = (HttpURLConnection) getUrl.openConnection();
+        //sets request
+
+        //gets response
+        //int responseCode = connection.getResponseCode();
+        //if connection (200 OK) made, data buffered
+        BufferedReader art = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+        StringBuffer jsonResponseData = new StringBuffer();
+        String readLine = null;
+
+        //appends data from response line by line
+        while ((readLine = art.readLine()) != null) {
+            jsonResponseData.append(readLine);
+        }
+        in.close();
+
+
+        //checks to see if JSON data cluster was a complex object or just an array
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        //parses the JSON data containing key/value pairs
+        Article article = objectMapper.readValue(jsonResponseData.toString(), Article.class);
+
+
+        System.out.println(article.getUuid() + " " + article.getBy() + " " + article.getDescendants() + " "
+                + article.getId() + " " + String.join(", ", article.getKids()) + " " + article.getScore()
+                + " " + article.getTime() + " " + article.getTitle() + " "
+                + article.getType() + " " + article.getUrl());
+
+        return article;
     }
 }
 
