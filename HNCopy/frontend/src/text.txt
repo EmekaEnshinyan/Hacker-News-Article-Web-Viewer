@@ -1,0 +1,9 @@
+{
+                            this.state.books.map(book =>
+                                    <tr key={articles.id}>
+                                        <td>{articles.id}</td>
+                                        <td>{articles.bookName}</td>
+                                        <td>{articles.author}</td>
+                                    </tr>
+                            )
+                        }
