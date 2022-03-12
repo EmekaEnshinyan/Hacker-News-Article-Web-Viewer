@@ -1,4 +1,4 @@
-package com.example.hackerNewsApiToWeb;
+package com.example.hackernewsapitoweb;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

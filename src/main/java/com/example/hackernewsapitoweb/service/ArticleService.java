@@ -1,16 +1,15 @@
-package com.example.hackerNewsApiToWeb.service;
-import com.example.hackerNewsApiToWeb.dataaccessobject.ArticleDao;
-import com.example.hackerNewsApiToWeb.model.Article;
+package com.example.hackernewsapitoweb.service;
+import com.example.hackernewsapitoweb.dataaccessobject.ArticleDao;
+import com.example.hackernewsapitoweb.model.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 public class ArticleService {
-    private final ArticleDao articleDao;
+   /* private final ArticleDao articleDao;
     //private final HackerNewClient hackerNewsClient;
     //need constructor to allow above var ArticleDao to be resolved
     //6. now that @Service, we are injecting here and use @AutoWired to ?wire? into the ArticleDao interface
@@ -47,6 +46,6 @@ public class ArticleService {
     //36. when updating article, we are making a new article?
     public int updateArticle(UUID key, Article article){ // <-- this almost looks like a new article is being made, but there is no logic that actually REWRITES the article
         return articleDao.updateArticleByKey(key, article);
-    }
+    }*/
 
 }

@@ -1,22 +1,32 @@
-package com.example.hackerNewsApiToWeb.parse;
+package com.example.hackernewsapitoweb.controller;
 
-import com.example.hackerNewsApiToWeb.model.Article;
+import com.example.hackernewsapitoweb.model.Article;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Arrays;
 
 import static java.lang.System.in;
+//heroku test
+@RestController
+//CORS Policy fix
+@CrossOrigin
+@RequestMapping(path = "/hn")
+public class ArticleController {
 
-public class Parse {
+/*  private final ArticleService articleService;
 
-    public static Article hackerNewsJsonObjectParse() throws IOException {
+   @Autowired
+    public ArticleController(@RequestBody ArticleService articleService) {
+        this.articleService = articleService;
+    }*/
 
+    @GetMapping("/articles")
+    public Article requestArticles() throws IOException {
 
         URL getUrl = new URL("https://hacker-news.firebaseio.com/v0/item/29042728.json?print=pretty");
         //Top 500 Articles
@@ -32,8 +42,7 @@ public class Parse {
         BufferedReader art = new BufferedReader(new InputStreamReader(connection.getInputStream()));
         StringBuffer jsonResponseData = new StringBuffer();
         String readLine = null;
-
-        //appends data from response line by line
+        //appends data
         while ((readLine = art.readLine()) != null) {
             jsonResponseData.append(readLine);
         }

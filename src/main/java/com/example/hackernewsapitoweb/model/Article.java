@@ -1,4 +1,4 @@
-package com.example.hackerNewsApiToWeb.model;
+package com.example.hackernewsapitoweb.model;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
