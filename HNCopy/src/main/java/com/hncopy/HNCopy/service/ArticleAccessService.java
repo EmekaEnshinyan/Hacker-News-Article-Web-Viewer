@@ -13,7 +13,6 @@ import java.util.List;
 @Repository("test dao")
 public class ArticleAccessService implements ArticleDao {
 
-
     private static List<Article> dataB = new ArrayList<>();
 
     @Override
