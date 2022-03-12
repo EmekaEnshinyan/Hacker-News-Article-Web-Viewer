@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class HackerNewsApiToWebApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void callDifferentHackerNewsArticle(String url) {
 	}
 
 }
