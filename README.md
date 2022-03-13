@@ -23,20 +23,20 @@ This API design displays the data of a news article that was retrieved from the 
 **NOTE** This has not been tested on a Mac or Linux OS.
 
 ###### The following tools are required to to have the application run:
-- Java 15 (can also be run on Java 8)
-- Apache-Maven version 15
+- Java 11 (can also be run on Java 8)
 - Internet connection
 - A means to compile and run the Java code (the editors I used were IntelliJ for Java and VSCode for JS)
 - Node.JS
 - Bootstrap
 
 ## Setup
+
 ##### Back End
-1. Download the [Back End Repo](https://github.com/EmekaEnshinyan/HackerNews-API-Design-Back-End.git)
-2.  Make sure the server is listening in on the right port (default 8080)
+1. Using either a .zip download or clone, obtain the master files and folders
+2. make sure that port 8080 is the default and not being used
+3. Run through the editor's Build+Run command
 ##### Front End
-1. Download the [Front End Repo](https://github.com/EmekaEnshinyan/HackerNews-API-Design-Front-End.git) and open it in VSCode
-2. make sure it is listening on a different port (default is 3000)
+1. Move the folder 
 
 ## Running-The-Application
 1.  Run the server through IntelliJ by compiling and running the program (you can test via Postman or type in **localhost:8080/hn/articles** in a browser) 
