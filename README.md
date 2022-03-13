@@ -1,4 +1,4 @@
-# HackerNews-Article-API-Web-Viewer-Front-End
+# HackerNews-Article-API-Web-Viewer
 Fundamental function: A full stack application that makes an API call to Hacker News, collects JSON data, parses the data and sends it to the front end client to do be formatted and displayed on a webpage in a readable format.
 
 This API design displays the data of a news article that was retrieved from the Hacker News API currently using a localhost port. The technologies useed are Java, Springboot in Spring MVC Structure, Javascript, React.js, Atom, MaterialUI, and Node.js.
