@@ -7,7 +7,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 class HnCopyApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void contextLoads(String url) {
+
+
+
 	}
 
 }
