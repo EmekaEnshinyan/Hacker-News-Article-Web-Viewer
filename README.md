@@ -34,9 +34,9 @@ This API design displays the data of a news article that was retrieved from the 
 ##### Back End
 1. Using either a .zip download or clone, obtain the master files and folders
 2. make sure that port 8080 is the default and not being used
-3. Run through the editor's Build+Run command
+
 ##### Front End
-1. Move the folder 
+1. Move the folder [frontend](https://github.com/EmekaEnshinyan/Hacker-News-Article-Web-Viewer/tree/master/HNCopy/frontend) to a separate directory.
 
 ## Running-The-Application
 1.  Run the server through IntelliJ by compiling and running the program (you can test via Postman or type in **localhost:8080/hn/articles** in a browser) 
@@ -54,3 +54,4 @@ A new browser tab should open up showing a list of the Article Data categories p
 
 display the top 500 trending articles
 integrate DB
+AWS Deployment
